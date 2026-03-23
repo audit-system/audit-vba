@@ -2,7 +2,7 @@
 const mysql = require('mysql2/promise');
 
 const pool = mysql.createPool({
-  host:            'mysql.railway.internal',
+  host:            'centerbeam.proxy.rlwy.net',
   database:        'railway',
   user:            'root',
   password:        'vutyVZqMmAILuQVdtEnmKmorRlhytxkM',          // XAMPP/WAMP = vide par défaut
