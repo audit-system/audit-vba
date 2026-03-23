@@ -4,6 +4,7 @@ const mysql = require('mysql2/promise');
 const pool = mysql.createPool({
   host:            'centerbeam.proxy.rlwy.net',
   database:        'railway',
+  port:            '22194',
   user:            'root',
   password:        'vutyVZqMmAILuQVdtEnmKmorRlhytxkM',          // XAMPP/WAMP = vide par défaut
   waitForConnections: true,
