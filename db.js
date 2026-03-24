@@ -2,10 +2,11 @@
 const mysql = require('mysql2/promise');
 
 const pool = mysql.createPool({
-  host:            'localhost',
-  database:        'lpa_db',
+  host:            'centerbeam.proxy.rlwy.net',
+  database:        'railway',
+  port:            '22194',
   user:            'root',
-  password:        '',          // XAMPP/WAMP = vide par défaut
+  password:        'vutyVZqMmAILuQVdtEnmKmorRlhytxkM',          // XAMPP/WAMP = vide par défaut
   waitForConnections: true,
   connectionLimit: 10,
   charset:         'utf8mb4',
