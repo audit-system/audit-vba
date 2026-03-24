@@ -1,13 +1,15 @@
-// routes/admin.js — Gestion des utilisateurs (niveau 1 uniquement)
+// routes/admin.js — Gestion des utilisateurs (super_admin uniquement)
 const express = require('express');
 const bcrypt  = require('bcrypt');
 const db      = require('../db');
 const router  = express.Router();
 
-// Middleware : authentifié + niveau 1
+// Middleware : authentifié + rôle super_admin
 router.use((req, res, next) => {
-  if (!req.session?.user)               return res.json({ ok: false, err: 'Non connecté' });
-  if (parseInt(req.session.user.niveau) !== 1) return res.json({ ok: false, err: 'Accès refusé' });
+  if (!req.session?.user)
+    return res.json({ ok: false, err: 'Non connecté' });
+  if (req.session.user.role !== 'super_admin')
+    return res.json({ ok: false, err: 'Accès refusé — réservé au Super Admin' });
   next();
 });
 
@@ -16,7 +18,8 @@ router.get('/', async (req, res) => {
   if (req.query.action !== 'list') return res.json({ ok: false, err: 'Action inconnue' });
   try {
     const [rows] = await db.execute(
-      'SELECT id, username, nom, niveau, role, zone FROM users ORDER BY niveau, username'
+      `SELECT id, username, nom, niveau, role, zone
+       FROM users ORDER BY niveau, username`
     );
     res.json({ ok: true, users: rows });
   } catch (e) {
@@ -32,7 +35,7 @@ router.post('/', async (req, res) => {
     // ── Ajouter ────────────────────────────────────────────────
     if (action === 'add') {
       const { username, nom, password, niveau, role, zone } = req.body;
-      if (!username || !nom || (password ?? '').length < 6 || ![1,2,3].includes(parseInt(niveau)))
+      if (!username || !nom || (password ?? '').length < 6 || ![1, 2, 3].includes(parseInt(niveau)))
         return res.json({ ok: false, err: 'Données invalides (mdp min 6 car.)' });
 
       const [[existing]] = await db.execute('SELECT id FROM users WHERE username = ?', [username]);
@@ -52,20 +55,25 @@ router.post('/', async (req, res) => {
       if (!id || (nom ?? '').length < 2)
         return res.json({ ok: false, err: 'Données invalides' });
 
-      const niv = parseInt(niveau);
-      if ([1,2,3].includes(niv)) {
-        await db.execute('UPDATE users SET nom=?, role=?, zone=?, niveau=? WHERE id=?',
-          [nom, role ?? '', zone ?? '', niv, id]);
+      // Empêcher de modifier le rôle super_admin de son propre compte
+      if (parseInt(id) === parseInt(req.session.user.id) && role === 'super_admin') {
+        await db.execute('UPDATE users SET nom=?, zone=? WHERE id=?',
+          [nom, zone ?? '', id]);
       } else {
-        await db.execute('UPDATE users SET nom=?, role=?, zone=? WHERE id=?',
-          [nom, role ?? '', zone ?? '', id]);
+        const niv = parseInt(niveau);
+        if ([1, 2, 3].includes(niv)) {
+          await db.execute('UPDATE users SET nom=?, role=?, zone=?, niveau=? WHERE id=?',
+            [nom, role ?? '', zone ?? '', niv, id]);
+        } else {
+          await db.execute('UPDATE users SET nom=?, role=?, zone=? WHERE id=?',
+            [nom, role ?? '', zone ?? '', id]);
+        }
       }
 
       if ((password ?? '').length >= 6) {
         const hash = await bcrypt.hash(password, 10);
         await db.execute('UPDATE users SET password=? WHERE id=?', [hash, id]);
       }
-
       return res.json({ ok: true });
     }
 

@@ -20,7 +20,9 @@ router.get('/', async (req, res) => {
 
   try {
     let rows;
-    if (lv === 1) {
+
+    // super_admin et niveau 1 voient tout
+    if (u.role === 'super_admin' || lv === 1) {
       [rows] = await db.execute(
         `SELECT ${COLS} FROM soumissions ORDER BY date_saisie DESC LIMIT 300`
       );

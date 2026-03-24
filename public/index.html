@@ -17,6 +17,7 @@
   --green:  #22c55e;
   --amber:  #f59e0b;
   --red:    #ef4444;
+  --purple: #a78bfa;
   --l1:     #a78bfa;
   --l2:     #38bdf8;
   --l3:     #34d399;
@@ -56,10 +57,10 @@ input, select, textarea, button { font-family: inherit; font-size: 14px; }
 .btn-out:hover { border-color: var(--red); color: var(--red); }
 
 /* TABS */
-.tabs   { display: flex; background: var(--card); border-bottom: 1px solid var(--border); padding: 0 1.5rem; gap: .1rem; }
+.tabs   { display: flex; background: var(--card); border-bottom: 1px solid var(--border); padding: 0 1.5rem; gap: .1rem; overflow-x: auto; }
 .tab    { padding: .55rem 1rem; background: transparent; border: none; border-bottom: 2px solid transparent; color: var(--muted); font-size: 13px; font-weight: 500; cursor: pointer; transition: all .15s; margin-bottom: -1px; white-space: nowrap; }
 .tab.on { color: var(--text); border-bottom-color: var(--cyan); }
-.pane   { display: none; padding: 1.5rem; max-width: 1080px; margin: 0 auto; }
+.pane   { display: none; padding: 1.5rem; max-width: 1100px; margin: 0 auto; }
 .pane.on{ display: block; }
 
 /* ─── DASHBOARD ─────────────────────────────── */
@@ -71,7 +72,7 @@ input, select, textarea, button { font-family: inherit; font-size: 14px; }
 .g2     { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1rem; margin-bottom: 1.2rem; }
 @media(max-width:680px){.g2{grid-template-columns:1fr}}
 .card   { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-.ch     { display: flex; justify-content: space-between; align-items: center; padding: .65rem 1rem; border-bottom: 1px solid var(--border); }
+.ch     { display: flex; justify-content: space-between; align-items: center; padding: .65rem 1rem; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: .4rem; }
 .ch h3  { font-size: 13px; font-weight: 600; }
 table   { width: 100%; border-collapse: collapse; font-size: 13px; }
 th      { padding: .45rem .9rem; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); border-bottom: 1px solid var(--border); font-weight: 600; }
@@ -150,6 +151,37 @@ tbody tr:hover td { background: #ffffff03; }
 .btn-del-sm   { padding: .2rem .55rem; border-radius: 5px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; font-size: 11px; transition: all .12s; }
 .btn-del-sm:hover   { border-color: var(--red); color: var(--red); }
 
+/* ─── SUPER ADMIN DASHBOARD ─────────────────── */
+.sa-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; flex-wrap: wrap; gap: .6rem; }
+.sa-title  { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 800; }
+.sa-title small { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; color: var(--muted); display: block; margin-top: .1rem; }
+.btn-refresh { padding: .42rem 1rem; border-radius: 7px; border: 1px solid var(--purple); background: #a78bfa12; color: var(--purple); font-weight: 600; font-size: 13px; cursor: pointer; transition: all .15s; display: flex; align-items: center; gap: .4rem; }
+.btn-refresh:hover { background: #a78bfa22; }
+.btn-refresh:disabled { opacity: .5; cursor: not-allowed; }
+.sa-section { margin-bottom: 1.3rem; }
+.sa-g2 { display: grid; grid-template-columns: 1.5fr 1fr; gap: 1rem; margin-bottom: 1.3rem; }
+@media(max-width:760px){ .sa-g2 { grid-template-columns: 1fr; } }
+.dist-bar-wrap { padding: .6rem 1rem; }
+.dist-bar-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: .35rem; }
+.dist-bar-label .lv-name { font-size: 12px; font-weight: 600; }
+.dist-bar-label .lv-info { font-size: 11px; color: var(--muted); }
+.dist-stacked { display: flex; height: 18px; border-radius: 6px; overflow: hidden; gap: 1px; margin-bottom: .3rem; }
+.dist-seg { min-width: 0; transition: flex .6s ease; }
+.dist-legend { display: flex; gap: .9rem; font-size: 11px; }
+.dist-divider { border: none; border-top: 1px solid var(--border); margin: .3rem 0; }
+.tab-sa { padding: .18rem .6rem; border-radius: 5px; border: 1px solid var(--border); background: transparent; color: var(--muted); font-size: 11px; font-weight: 700; cursor: pointer; transition: all .12s; font-family: 'Syne', sans-serif; }
+.tab-sa.on { background: #0ea5e918; border-color: var(--cyan); color: var(--cyan); }
+.sa-q-row { display: flex; align-items: flex-start; gap: .6rem; padding: .5rem 1rem; border-bottom: 1px solid #ffffff04; }
+.sa-q-row:last-child { border: none; }
+.sa-q-num { font-size: 11px; font-weight: 700; color: var(--cyan); width: 22px; flex-shrink: 0; text-align: right; padding-top: 2px; }
+.sa-q-txt { flex: 1; font-size: 12px; color: #90aec8; line-height: 1.4; }
+.sa-q-bar { width: 120px; flex-shrink: 0; display: flex; align-items: center; gap: .4rem; }
+.sa-q-bar .bar-t { flex: 1; }
+.sa-q-count { width: 32px; text-align: right; font-size: 12px; font-weight: 700; color: var(--red); }
+.scroll-table { max-height: 320px; overflow-y: auto; }
+.scroll-table::-webkit-scrollbar { width: 4px; }
+.scroll-table::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
 /* ─── MODAL ─────────────────────────────────── */
 .modal-bg { position: fixed; inset: 0; background: #00000088; z-index: 100; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(2px); }
 .modal    { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem 1.5rem; width: 420px; max-width: 95vw; box-shadow: 0 24px 64px #00000055; }
@@ -159,6 +191,36 @@ tbody tr:hover td { background: #ffffff03; }
 .modal-foot { display: flex; justify-content: flex-end; gap: .6rem; margin-top: 1.2rem; }
 .btn-cancel { padding: .45rem .9rem; border-radius: 7px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; }
 .btn-confirm { padding: .45rem 1.1rem; border-radius: 7px; border: none; background: var(--cyan); color: #fff; font-weight: 600; cursor: pointer; }
+
+/* ─── DETAIL MODAL ──────────────────────────── */
+.detail-modal-bg { position: fixed; inset: 0; background: #000000aa; z-index: 200; display: flex; align-items: flex-start; justify-content: center; padding: 2vh 1rem; overflow-y: auto; backdrop-filter: blur(3px); }
+.detail-modal { background: var(--card); border: 1px solid var(--border); border-radius: 14px; width: 700px; max-width: 98vw; box-shadow: 0 32px 80px #00000066; }
+.dm-head { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; background: var(--card2); border-bottom: 1px solid var(--border); border-radius: 14px 14px 0 0; }
+.dm-head h2 { font-family: 'Syne', sans-serif; font-size: .95rem; font-weight: 800; }
+.dm-close { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: .22rem .6rem; border-radius: 6px; cursor: pointer; font-size: 15px; transition: all .15s; }
+.dm-close:hover { border-color: var(--red); color: var(--red); }
+.dm-meta { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .6rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border); }
+.dm-meta-item .label { font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .2rem; }
+.dm-meta-item .value { font-size: 13px; font-weight: 500; }
+.dm-qlist { padding: .5rem 1.25rem 1rem; }
+.dm-qlist h3 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: .6rem; padding-top: .4rem; }
+.dm-q { display: flex; align-items: flex-start; gap: .7rem; padding: .5rem 0; border-bottom: 1px solid #ffffff04; }
+.dm-q:last-child { border: none; }
+.dm-q-num { font-size: 11px; font-weight: 700; color: var(--cyan); width: 22px; flex-shrink: 0; padding-top: 2px; text-align: right; }
+.dm-q-txt { flex: 1; font-size: 12.5px; color: #90aec8; line-height: 1.45; }
+.dm-q-ans { flex-shrink: 0; display: flex; align-items: center; gap: .5rem; }
+.ans-badge { font-size: 12px; font-weight: 800; padding: .2rem .55rem; border-radius: 5px; font-family: 'Syne', sans-serif; min-width: 34px; text-align: center; }
+.ans-O  { background: #22c55e18; border: 1px solid var(--green); color: var(--green); }
+.ans-X  { background: #ef444418; border: 1px solid var(--red);   color: var(--red);   }
+.ans-NA { background: #ffffff08; border: 1px solid var(--muted); color: var(--muted); }
+.ans-??  { background: #ffffff06; border: 1px solid var(--border); color: var(--muted); }
+.dm-photo { width: 52px; height: 52px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border); cursor: zoom-in; transition: transform .15s; flex-shrink: 0; }
+.dm-photo:hover { transform: scale(1.06); border-color: var(--cyan); }
+.dm-obs { margin: 0 1.25rem 1.25rem; background: var(--card2); border: 1px solid var(--border); border-radius: 8px; padding: .75rem 1rem; font-size: 12.5px; color: #90aec8; line-height: 1.6; white-space: pre-wrap; }
+
+/* Lightbox photo */
+.lb-bg { position: fixed; inset: 0; background: #000000cc; z-index: 300; display: flex; align-items: center; justify-content: center; cursor: zoom-out; }
+.lb-bg img { max-width: 92vw; max-height: 88vh; border-radius: 8px; box-shadow: 0 20px 60px #000000aa; }
 
 /* ─── TOAST ─────────────────────────────────── */
 .toast  { position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 999; padding: .7rem 1.1rem; border-radius: 9px; font-size: 13px; font-weight: 600; box-shadow: 0 6px 20px #00000050; display: none; }
@@ -198,14 +260,15 @@ tbody tr:hover td { background: #ffffff03; }
   </nav>
 
   <div class="tabs">
-    <button class="tab on"  onclick="showTab('dash',this)">📊 Dashboard</button>
-    <button class="tab"     onclick="showTab('form',this)" id="formTab">📝 Formulaire</button>
-    <button class="tab"     onclick="showTab('hist',this)">📋 Historique</button>
-    <button class="tab"     onclick="showTab('profil',this)">👤 Mon Profil</button>
-    <button class="tab hide" id="adminTab" onclick="showTab('admin',this)">⚙️ Utilisateurs</button>
+    <button class="tab on"  id="dashTab"   onclick="showTab('dash',this)">📊 Dashboard</button>
+    <button class="tab"     id="formTab"   onclick="showTab('form',this)">📝 Formulaire</button>
+    <button class="tab"     id="histTab"   onclick="showTab('hist',this)">📋 Historique</button>
+    <button class="tab"                    onclick="showTab('profil',this)">👤 Mon Profil</button>
+    <button class="tab hide" id="sadminTab" onclick="showTab('sadmin',this)">🏠 Vue Globale</button>
+    <button class="tab hide" id="adminTab"  onclick="showTab('admin',this)">⚙️ Utilisateurs</button>
   </div>
 
-  <!-- Dashboard -->
+  <!-- Dashboard (niveaux 1-2-3) -->
   <div class="pane on" id="pane-dash">
     <div class="stats" id="statsGrid"></div>
     <div class="g2">
@@ -243,7 +306,6 @@ tbody tr:hover td { background: #ffffff03; }
   <!-- Profil -->
   <div class="pane" id="pane-profil">
     <div class="profile-grid">
-      <!-- Infos -->
       <div class="section-card">
         <div class="section-head">👤 Informations du compte</div>
         <div class="section-body">
@@ -253,44 +315,79 @@ tbody tr:hover td { background: #ffffff03; }
           <div class="info-row"><span class="lbl">Zone</span><span id="pZone"></span></div>
         </div>
       </div>
-      <!-- Changer nom -->
       <div class="section-card">
         <div class="section-head">✏️ Modifier le nom affiché</div>
         <div class="section-body">
-          <div class="form-row">
-            <label>Nom actuel</label>
-            <input id="pNomActuel" type="text" readonly>
-          </div>
-          <div class="form-row">
-            <label>Nouveau nom</label>
-            <input id="pNomNew" type="text" placeholder="Prénom Nom">
-          </div>
+          <div class="form-row"><label>Nom actuel</label><input id="pNomActuel" type="text" readonly></div>
+          <div class="form-row"><label>Nouveau nom</label><input id="pNomNew" type="text" placeholder="Prénom Nom"></div>
           <button class="btn-save" onclick="saveNom()">Enregistrer le nom</button>
         </div>
       </div>
-      <!-- Changer mdp -->
       <div class="section-card">
         <div class="section-head">🔒 Changer le mot de passe</div>
         <div class="section-body">
-          <div class="form-row">
-            <label>Mot de passe actuel</label>
-            <input id="pOldPwd" type="password" placeholder="••••••••">
-          </div>
-          <div class="form-row">
-            <label>Nouveau mot de passe</label>
-            <input id="pNewPwd" type="password" placeholder="Min. 6 caractères">
-          </div>
-          <div class="form-row">
-            <label>Confirmer</label>
-            <input id="pConfPwd" type="password" placeholder="Répéter le nouveau">
-          </div>
+          <div class="form-row"><label>Mot de passe actuel</label><input id="pOldPwd" type="password" placeholder="••••••••"></div>
+          <div class="form-row"><label>Nouveau mot de passe</label><input id="pNewPwd" type="password" placeholder="Min. 6 caractères"></div>
+          <div class="form-row"><label>Confirmer</label><input id="pConfPwd" type="password" placeholder="Répéter le nouveau"></div>
           <button class="btn-save" onclick="savePasswd()">Changer le mot de passe</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Admin Utilisateurs (niveau 1 seulement) -->
+  <!-- ═══ SUPER ADMIN DASHBOARD ═══ -->
+  <div class="pane" id="pane-sadmin">
+    <div class="sa-header">
+      <div class="sa-title">
+        Tableau de Bord Global
+        <small id="saRefreshTime">—</small>
+      </div>
+      <button class="btn-refresh" id="saRefreshBtn" onclick="refreshSuperDash()">
+        <span id="saRefreshIcon">⟳</span> Actualiser
+      </button>
+    </div>
+
+    <!-- KPIs -->
+    <div class="stats" id="saKpis"></div>
+
+    <!-- Distribution + Scores utilisateurs -->
+    <div class="sa-g2">
+      <div class="card sa-section">
+        <div class="ch"><h3>Distribution des scores par niveau</h3></div>
+        <div id="saScoreDist"></div>
+      </div>
+      <div class="card sa-section">
+        <div class="ch"><h3>Score moyen par auditeur</h3></div>
+        <div class="scroll-table" id="saUserScores"></div>
+      </div>
+    </div>
+
+    <!-- Questions non-conformes -->
+    <div class="card sa-section">
+      <div class="ch">
+        <h3>Questions les plus non-conformes (X)</h3>
+        <div style="display:flex;gap:.3rem">
+          <button class="tab-sa on" id="saLvBtn1" onclick="showSaLevel(1,this)">LPA 1</button>
+          <button class="tab-sa"    id="saLvBtn2" onclick="showSaLevel(2,this)">LPA 2</button>
+          <button class="tab-sa"    id="saLvBtn3" onclick="showSaLevel(3,this)">LPA 3</button>
+        </div>
+      </div>
+      <div id="saQuestionsBox"></div>
+    </div>
+
+    <!-- 50 dernières soumissions -->
+    <div class="card sa-section">
+      <div class="ch"><h3>50 dernières soumissions</h3></div>
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Date</th><th>Niveau</th><th>Auditeur</th><th>Zone</th><th>Conf.</th><th>N-C</th><th>Score</th></tr></thead>
+          <tbody id="saRecentTbl"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Utilisateurs (super_admin uniquement) -->
   <div class="pane" id="pane-admin">
     <div class="admin-toolbar">
       <h3 style="font-family:'Syne',sans-serif">Gestion des utilisateurs</h3>
@@ -299,9 +396,7 @@ tbody tr:hover td { background: #ffffff03; }
     <div class="card">
       <table>
         <thead>
-          <tr>
-            <th>Identifiant</th><th>Nom</th><th>Niveau</th><th>Rôle</th><th>Zone</th><th>Actions</th>
-          </tr>
+          <tr><th>Identifiant</th><th>Nom</th><th>Niveau</th><th>Rôle</th><th>Zone</th><th>Actions</th></tr>
         </thead>
         <tbody id="adminTbl"></tbody>
       </table>
@@ -316,7 +411,10 @@ tbody tr:hover td { background: #ffffff03; }
     <input type="hidden" id="mId">
     <div class="form-row"><label>Identifiant</label><input id="mUsername" placeholder="ex: shift_leader_3"></div>
     <div class="form-row"><label>Nom complet</label><input id="mNom" placeholder="Prénom Nom"></div>
-    <div class="form-row"><label>Mot de passe <span id="mPwdHint" style="font-size:10px;color:var(--muted)">(laisser vide = inchangé)</span></label><input id="mPwd" type="password" placeholder="Min. 6 caractères"></div>
+    <div class="form-row">
+      <label>Mot de passe <span id="mPwdHint" style="font-size:10px;color:var(--muted)">(laisser vide = inchangé)</span></label>
+      <input id="mPwd" type="password" placeholder="Min. 6 caractères">
+    </div>
     <div class="form-row"><label>Niveau</label>
       <select id="mNiveau">
         <option value="3">3 — Shift Leader (Quotidien)</option>
@@ -331,6 +429,27 @@ tbody tr:hover td { background: #ffffff03; }
       <button class="btn-confirm" onclick="saveModal()">Enregistrer</button>
     </div>
   </div>
+</div>
+
+<!-- ─── Détail soumission (super admin) ─── -->
+<div class="detail-modal-bg hide" id="detailBg" onclick="closeDetail(event)">
+  <div class="detail-modal" id="detailModal">
+    <div class="dm-head">
+      <h2 id="dmTitle">Détail de la soumission</h2>
+      <button class="dm-close" onclick="closeDetailDirect()">✕</button>
+    </div>
+    <div class="dm-meta" id="dmMeta"></div>
+    <div class="dm-qlist">
+      <h3>Réponses aux points d'audit</h3>
+      <div id="dmQuestions"></div>
+    </div>
+    <div id="dmObsWrap"></div>
+  </div>
+</div>
+
+<!-- Lightbox photo -->
+<div class="lb-bg hide" id="lbBg" onclick="$('lbBg').classList.add('hide')">
+  <img id="lbImg" src="" alt="Photo">
 </div>
 
 <div class="toast" id="toast"></div>
@@ -402,7 +521,7 @@ const LV = {
 /* ═══════════════════════════════════════════
    STATE
 ═══════════════════════════════════════════ */
-let USER = null, ROWS = [], ANS = {}, PHOTOS = {};
+let USER = null, ROWS = [], ANS = {}, PHOTOS = {}, STATS = null, SA_LEVEL = 1;
 
 /* ═══════════════════════════════════════════
    UTILS
@@ -438,7 +557,7 @@ async function doLogin() {
 
 async function doLogout() {
   await fetch('/api/logout');
-  USER = null; ROWS = [];
+  USER = null; ROWS = []; STATS = null;
   $('appPage').style.display   = 'none';
   $('loginPage').style.display = 'flex';
   $('lu').value = ''; $('lp').value = '';
@@ -448,23 +567,57 @@ async function doLogout() {
    BOOT
 ═══════════════════════════════════════════ */
 async function boot() {
-  const m = LV[USER.niveau];
-  $('uname').textContent    = USER.nom;
-  $('lvpill').textContent   = m.lbl;
-  $('lvpill').style.cssText = `background:${m.bg};color:${m.col}`;
-  $('formTab').textContent  = `📝 Formulaire ${m.txt}`;
+  $('uname').textContent = USER.nom;
+  const isSA = USER.role === 'super_admin';
 
-  // Onglet admin visible uniquement pour niveau 1
-  if (USER.niveau === 1) {
+  if (isSA) {
+    // ── Super Admin ──────────────────────────────
+    $('lvpill').textContent = '★ Super Admin';
+    $('lvpill').style.cssText = 'background:#7c3aed28;color:#a78bfa;border:1px solid #7c3aed55';
+
+    // Tabs : montrer vue globale + utilisateurs, cacher audit
+    $('sadminTab').classList.remove('hide');
     $('adminTab').classList.remove('hide');
+    $('dashTab').classList.add('hide');
+    $('formTab').classList.add('hide');
+    $('histTab').classList.add('hide');
+
+    // Onglet actif : sadmin
+    document.querySelectorAll('.pane').forEach(p => p.classList.remove('on'));
+    document.querySelectorAll('.tab').forEach(b  => b.classList.remove('on'));
+    $('pane-sadmin').classList.add('on');
+    $('sadminTab').classList.add('on');
+
+    await loadSuperStats();
+    await loadAdminUsers();
+
+  } else {
+    // ── Utilisateur normal (niveaux 1-2-3) ────────
+    const m = LV[USER.niveau];
+    $('lvpill').textContent   = m.lbl;
+    $('lvpill').style.cssText = `background:${m.bg};color:${m.col}`;
+    $('formTab').textContent  = `📝 Formulaire ${m.txt}`;
+
+    // Cacher les onglets super admin
+    $('sadminTab').classList.add('hide');
+    $('adminTab').classList.add('hide');
+    $('dashTab').classList.remove('hide');
+    $('formTab').classList.remove('hide');
+    $('histTab').classList.remove('hide');
+
+    // Onglet actif : dash
+    document.querySelectorAll('.pane').forEach(p => p.classList.remove('on'));
+    document.querySelectorAll('.tab').forEach(b  => b.classList.remove('on'));
+    $('pane-dash').classList.add('on');
+    $('dashTab').classList.add('on');
+
+    await loadData();
+    renderDash();
+    buildForm();
+    renderHist();
   }
 
-  await loadData();
-  renderDash();
-  buildForm();
-  renderHist();
   renderProfil();
-  if (USER.niveau === 1) loadAdminUsers();
 }
 
 async function loadData() {
@@ -486,7 +639,7 @@ function showTab(id, btn) {
 }
 
 /* ═══════════════════════════════════════════
-   DASHBOARD
+   DASHBOARD (niveaux 1-2-3)
 ═══════════════════════════════════════════ */
 function renderDash() {
   const mine = ROWS.filter(r => r.username === USER.username);
@@ -527,7 +680,6 @@ function renderDash() {
 
   $('refreshLbl').textContent = '⟳ ' + new Date().toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
 
-  // Barres de score uniquement sur les données visibles
   const l1 = avg(ROWS.filter(r => +r.niveau===1).map(r => r.score));
   const l2 = avg(ROWS.filter(r => +r.niveau===2).map(r => r.score));
   const l3 = avg(ROWS.filter(r => +r.niveau===3).map(r => r.score));
@@ -540,6 +692,178 @@ function renderDash() {
     <div class="bar-t"><div class="bar-f" style="width:${b.v}%;background:${b.c}"></div></div>
     <div class="bar-p" style="color:${b.c}">${b.v}%</div>
   </div>`).join('');
+}
+
+/* ═══════════════════════════════════════════
+   SUPER ADMIN STATS
+═══════════════════════════════════════════ */
+async function loadSuperStats() {
+  try {
+    const r = await fetch('/api/stats');
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.err);
+    STATS = d;
+    renderSuperDash();
+  } catch(e) {
+    toast('❌ Erreur stats : ' + e.message, 'err');
+  }
+}
+
+async function refreshSuperDash() {
+  const btn  = $('saRefreshBtn');
+  const icon = $('saRefreshIcon');
+  btn.disabled = true;
+  icon.style.display = 'inline-block';
+  icon.style.animation = 'spin .7s linear infinite';
+  const style = document.createElement('style');
+  style.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
+  document.head.appendChild(style);
+
+  await loadSuperStats();
+  await loadAdminUsers();
+
+  btn.disabled = false;
+  icon.style.animation = '';
+  $('saRefreshTime').textContent = 'Mis à jour ' + new Date().toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
+  toast('✅ Données actualisées', 'ok');
+}
+
+function renderSuperDash() {
+  if (!STATS) return;
+  const { levelStats, userStats, recent, questionX, total_users, week_nb } = STATS;
+
+  // ── KPIs ──────────────────────────────────────
+  const totalAudits = [1,2,3].reduce((t,lv) => t + (levelStats[lv]?.nb || 0), 0);
+  let weightedSum = 0, weightedN = 0;
+  userStats.forEach(u => { weightedSum += u.moy_score * u.nb; weightedN += u.nb; });
+  const globalAvg = weightedN ? Math.round(weightedSum / weightedN) : 0;
+
+  $('saKpis').innerHTML = `
+    <div class="stat">
+      <div class="s-lbl">Total soumissions</div>
+      <div class="s-val">${totalAudits}</div>
+      <div class="s-sub">Tous niveaux</div>
+    </div>
+    <div class="stat">
+      <div class="s-lbl">Score global moyen</div>
+      <div class="s-val" style="color:${sc(globalAvg)}">${globalAvg}%</div>
+      <div class="s-sub">Tous auditeurs</div>
+    </div>
+    <div class="stat">
+      <div class="s-lbl">Audits (7 jours)</div>
+      <div class="s-val">${week_nb}</div>
+      <div class="s-sub">Cette semaine</div>
+    </div>
+    <div class="stat">
+      <div class="s-lbl">Utilisateurs</div>
+      <div class="s-val">${total_users}</div>
+      <div class="s-sub">Comptes actifs</div>
+    </div>
+  `;
+
+  // ── Distribution des scores ───────────────────
+  const lvCols  = { 1:'var(--l1)', 2:'var(--l2)', 3:'var(--l3)' };
+  const lvNames = { 1:'LPA 1 — Mensuel', 2:'LPA 2 — Hebdo', 3:'LPA 3 — Quotidien' };
+
+  $('saScoreDist').innerHTML = [1,2,3].map((lv, i) => {
+    const s = levelStats[lv] || {};
+    if (!s.nb) return `
+      <div class="dist-bar-wrap">
+        <div class="dist-bar-label">
+          <span class="lv-name" style="color:${lvCols[lv]}">${lvNames[lv]}</span>
+          <span class="lv-info">Aucune donnée</span>
+        </div>
+      </div>${i < 2 ? '<hr class="dist-divider">' : ''}`;
+
+    const highPct = Math.round(s.high_count / s.nb * 100);
+    const midPct  = Math.round(s.mid_count  / s.nb * 100);
+    const lowPct  = 100 - highPct - midPct;
+
+    return `
+      <div class="dist-bar-wrap">
+        <div class="dist-bar-label">
+          <span class="lv-name" style="color:${lvCols[lv]}">${lvNames[lv]}</span>
+          <span class="lv-info">${s.nb} audit(s) · moy : <b style="color:${sc(s.score_moyen)}">${s.score_moyen}%</b></span>
+        </div>
+        <div class="dist-stacked">
+          <div class="dist-seg" style="flex:${highPct || .01};background:var(--green)" title="Élevé ≥84% : ${s.high_count}"></div>
+          <div class="dist-seg" style="flex:${midPct  || .01};background:var(--amber)" title="Moyen 70-83% : ${s.mid_count}"></div>
+          <div class="dist-seg" style="flex:${lowPct  || .01};background:var(--red)"   title="Faible <70% : ${s.low_count}"></div>
+        </div>
+        <div class="dist-legend">
+          <span style="color:var(--green)">● Élevé ${highPct}% (${s.high_count})</span>
+          <span style="color:var(--amber)">● Moyen ${midPct}% (${s.mid_count})</span>
+          <span style="color:var(--red)">● Faible ${lowPct}% (${s.low_count})</span>
+        </div>
+      </div>${i < 2 ? '<hr class="dist-divider">' : ''}`;
+  }).join('');
+
+  // ── Score par auditeur ────────────────────────
+  $('saUserScores').innerHTML = `
+    <table>
+      <thead><tr><th>Auditeur</th><th>Niv.</th><th>Audits</th><th>Score moy.</th></tr></thead>
+      <tbody>
+        ${userStats.length
+          ? userStats.map(u => `<tr>
+              <td>${u.nom_auditeur}</td>
+              <td><span class="chip" style="background:${LV[u.niveau]?.bg};color:${LV[u.niveau]?.col}">LPA${u.niveau}</span></td>
+              <td style="color:var(--muted)">${u.nb}</td>
+              <td>${ch(u.moy_score)}</td>
+            </tr>`).join('')
+          : '<tr><td colspan="4" class="empty">Aucune donnée</td></tr>'}
+      </tbody>
+    </table>`;
+
+  // ── 50 dernières soumissions ──────────────────
+  $('saRecentTbl').innerHTML = recent.length
+    ? recent.map((r, idx) => `<tr style="cursor:pointer" onclick="openDetail(${idx})" title="Voir le détail">
+        <td style="font-size:12px">${fd(r.date_saisie)}</td>
+        <td><span class="chip" style="background:${LV[r.niveau]?.bg};color:${LV[r.niveau]?.col}">LPA ${r.niveau}</span></td>
+        <td>${r.nom_auditeur}</td>
+        <td style="color:var(--muted)">${r.zone || '—'}</td>
+        <td style="color:var(--green)">${r.conformes}</td>
+        <td style="color:var(--red)">${r.non_conformes}</td>
+        <td>${ch(r.score)}</td>
+      </tr>`).join('')
+    : '<tr><td colspan="7" class="empty">Aucune soumission</td></tr>';
+
+  // ── Questions non-conformes ───────────────────
+  renderSaQuestions();
+  $('saRefreshTime').textContent = 'Mis à jour ' + new Date().toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
+}
+
+function showSaLevel(lv, btn) {
+  SA_LEVEL = lv;
+  document.querySelectorAll('.tab-sa').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  renderSaQuestions();
+}
+
+function renderSaQuestions() {
+  if (!STATS) return;
+  const qData = STATS.questionX[SA_LEVEL] || {};
+  const qs    = QS[SA_LEVEL] || [];
+
+  const sorted = Object.entries(qData)
+    .map(([idx, count]) => ({ idx: parseInt(idx), count, q: qs[parseInt(idx)] || `Question ${parseInt(idx)+1}` }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 10);
+
+  if (!sorted.length) {
+    $('saQuestionsBox').innerHTML = '<div class="empty">Aucune non-conformité enregistrée pour ce niveau</div>';
+    return;
+  }
+
+  const maxCount = sorted[0].count;
+  $('saQuestionsBox').innerHTML = sorted.map(item => `
+    <div class="sa-q-row">
+      <div class="sa-q-num">Q${item.idx + 1}</div>
+      <div class="sa-q-txt">${item.q}</div>
+      <div class="sa-q-bar">
+        <div class="bar-t"><div class="bar-f" style="width:${Math.round(item.count/maxCount*100)}%;background:var(--red)"></div></div>
+        <div class="sa-q-count">${item.count}✗</div>
+      </div>
+    </div>`).join('');
 }
 
 /* ═══════════════════════════════════════════
@@ -683,7 +1007,6 @@ async function submitForm() {
 ═══════════════════════════════════════════ */
 function renderHist() {
   const lv = USER.niveau;
-  // Le titre change selon la visibilité
   if (lv === 1) $('histTitle').textContent = 'Toutes les soumissions';
   else if (lv === 2) $('histTitle').textContent = 'Soumissions LPA 2 & 3';
   else $('histTitle').textContent = 'Mes soumissions';
@@ -706,8 +1029,9 @@ function renderHist() {
    PROFIL
 ═══════════════════════════════════════════ */
 function renderProfil() {
+  const isSA = USER.role === 'super_admin';
   $('pUsername').textContent = USER.username;
-  $('pNiveau').textContent   = `Niveau ${USER.niveau} — ${LV[USER.niveau].lbl}`;
+  $('pNiveau').textContent   = isSA ? 'Super Admin' : `Niveau ${USER.niveau} — ${LV[USER.niveau]?.lbl || '—'}`;
   $('pRole').textContent     = USER.role || '—';
   $('pZone').textContent     = USER.zone || '—';
   $('pNomActuel').value      = USER.nom;
@@ -730,8 +1054,7 @@ async function saveNom() {
     $('uname').textContent  = USER.nom;
     $('pNomActuel').value   = USER.nom;
     $('pNomNew').value      = '';
-    // Mettre à jour aussi le formulaire (champ auditeur readonly)
-    buildForm();
+    if (USER.role !== 'super_admin') buildForm();
     toast('✅ Nom mis à jour', 'ok');
   } catch(e) { toast('❌ ' + e.message, 'err'); }
 }
@@ -756,7 +1079,7 @@ async function savePasswd() {
 }
 
 /* ═══════════════════════════════════════════
-   ADMIN UTILISATEURS
+   ADMIN UTILISATEURS (super_admin)
 ═══════════════════════════════════════════ */
 let ADMIN_USERS = [];
 
@@ -770,22 +1093,28 @@ async function loadAdminUsers() {
 }
 
 function renderAdminTable() {
-  const lvNames = { 1: 'LPA 1', 2: 'LPA 2', 3: 'LPA 3' };
+  const lvNames  = { 1: 'LPA 1', 2: 'LPA 2', 3: 'LPA 3' };
   const lvColors = { 1: 'var(--l1)', 2: 'var(--l2)', 3: 'var(--l3)' };
   const lvBgs    = { 1: '#a78bfa18', 2: '#38bdf818', 3: '#34d39918' };
 
   $('adminTbl').innerHTML = ADMIN_USERS.length
-    ? ADMIN_USERS.map(u => `<tr>
-        <td><code style="font-size:12px;color:var(--cyan)">${u.username}</code></td>
-        <td>${u.nom}</td>
-        <td><span class="chip" style="background:${lvBgs[u.niveau]};color:${lvColors[u.niveau]}">${lvNames[u.niveau]}</span></td>
-        <td style="color:var(--muted)">${u.role || '—'}</td>
-        <td style="color:var(--muted)">${u.zone || '—'}</td>
-        <td style="display:flex;gap:.4rem">
-          <button class="btn-edit-sm" onclick="openModalEdit(${u.id})">✏️ Modifier</button>
-          <button class="btn-del-sm"  onclick="deleteUser(${u.id},'${u.username}')">🗑️ Supprimer</button>
-        </td>
-      </tr>`).join('')
+    ? ADMIN_USERS.map(u => {
+        const isSA = u.role === 'super_admin';
+        const badge = isSA
+          ? `<span class="chip" style="background:#7c3aed28;color:#a78bfa">Super Admin</span>`
+          : `<span class="chip" style="background:${lvBgs[u.niveau]};color:${lvColors[u.niveau]}">${lvNames[u.niveau] || '—'}</span>`;
+        return `<tr>
+          <td><code style="font-size:12px;color:var(--cyan)">${u.username}</code></td>
+          <td>${u.nom}</td>
+          <td>${badge}</td>
+          <td style="color:var(--muted)">${u.role || '—'}</td>
+          <td style="color:var(--muted)">${u.zone || '—'}</td>
+          <td style="display:flex;gap:.4rem">
+            <button class="btn-edit-sm" onclick="openModalEdit(${u.id})">✏️ Modifier</button>
+            <button class="btn-del-sm"  onclick="deleteUser(${u.id},'${u.username}')">🗑️ Supprimer</button>
+          </td>
+        </tr>`;
+      }).join('')
     : '<tr><td colspan="6" class="empty">Aucun utilisateur</td></tr>';
 }
 
@@ -813,7 +1142,7 @@ function openModalEdit(id) {
   $('mNom').value = u.nom;
   $('mPwd').value = '';
   $('mPwdHint').style.display = 'inline';
-  $('mNiveau').value = u.niveau;
+  $('mNiveau').value = u.niveau || '3';
   $('mRole').value = u.role || '';
   $('mZone').value = u.zone || '';
   $('modalBg').classList.remove('hide');
@@ -867,7 +1196,6 @@ async function deleteUser(id, username) {
   } catch(e) { toast('❌ ' + e.message, 'err'); }
 }
 
-// Fermer modal en cliquant en dehors
 $('modalBg').addEventListener('click', e => {
   if (e.target === $('modalBg')) closeModal();
 });
@@ -904,6 +1232,104 @@ function removePhoto(i) {
   if (btn) { btn.classList.remove('has-photo'); btn.textContent = '📷'; }
   const inp = $(`q${i}file`);
   if (inp) inp.value = '';
+}
+
+/* ═══════════════════════════════════════════
+   DÉTAIL SOUMISSION (super admin)
+═══════════════════════════════════════════ */
+function openDetail(idx) {
+  if (!STATS?.recent) return;
+  const r = STATS.recent[idx];
+  if (!r) return;
+
+  const lv   = r.niveau;
+  const qs   = QS[lv] || [];
+  const lvCol = LV[lv]?.col || 'var(--cyan)';
+  const lvBg  = LV[lv]?.bg  || '#0ea5e918';
+
+  // ── En-tête ──────────────────────────────────
+  $('dmTitle').innerHTML = `
+    Soumission #${r.id} &nbsp;
+    <span class="chip" style="background:${lvBg};color:${lvCol}">LPA ${lv}</span>`;
+
+  // ── Méta-données ─────────────────────────────
+  const periodLabel = lv === 1 ? 'Mois' : lv === 2 ? 'Semaine' : 'Shift';
+  const periodVal   = lv === 1 ? (r.mois || '—') : lv === 2 ? (r.semaine || '—') : (r.shift || '—');
+
+  const meta = [
+    { label: 'Auditeur',    value: r.nom_auditeur },
+    { label: 'Identifiant', value: `<code style="color:var(--cyan);font-size:12px">${r.username}</code>` },
+    { label: 'Date audit',  value: fd(r.date_audit) },
+    { label: 'Date saisie', value: fd(r.date_saisie) },
+    { label: 'Zone',        value: r.zone || '—' },
+    { label: periodLabel,   value: periodVal },
+    { label: 'Conformes',   value: `<span style="color:var(--green);font-weight:700">${r.conformes}</span>` },
+    { label: 'Non-conf.',   value: `<span style="color:var(--red);font-weight:700">${r.non_conformes}</span>` },
+    { label: 'Score',       value: ch(r.score) },
+  ];
+
+  $('dmMeta').innerHTML = meta.map(m => `
+    <div class="dm-meta-item">
+      <div class="label">${m.label}</div>
+      <div class="value">${m.value}</div>
+    </div>`).join('');
+
+  // ── Questions & réponses ──────────────────────
+  // reponses peut être array ou objet-clé
+  const reps = r.reponses || [];
+  const photos = r.photos || {};
+
+  const getAns = i => {
+    if (Array.isArray(reps)) return reps[i] ?? null;
+    return reps[String(i)] ?? reps[i] ?? null;
+  };
+
+  let qHtml = '';
+  for (let i = 0; i < qs.length; i++) {
+    const ans = getAns(i);
+    const badgeCls = ans === 'O' ? 'ans-O' : ans === 'X' ? 'ans-X' : ans === 'NA' ? 'ans-NA' : 'ans-??';
+    const badgeTxt = ans || '?';
+
+    // Photo : seulement si NA et photo présente
+    let photoHtml = '';
+    if (ans === 'NA' && photos[String(i)] || photos[i]) {
+      const src = photos[String(i)] || photos[i];
+      photoHtml = `<img class="dm-photo" src="${src}" alt="Photo Q${i+1}"
+                        onclick="openLightbox('${src.replace(/'/g,"\\'")}');event.stopPropagation()">`;
+    }
+
+    qHtml += `
+      <div class="dm-q">
+        <div class="dm-q-num">${i + 1}</div>
+        <div class="dm-q-txt">${qs[i]}</div>
+        <div class="dm-q-ans">
+          <span class="ans-badge ${badgeCls}">${badgeTxt}</span>
+          ${photoHtml}
+        </div>
+      </div>`;
+  }
+  $('dmQuestions').innerHTML = qHtml || '<div class="empty">Aucune réponse enregistrée</div>';
+
+  // ── Observations ──────────────────────────────
+  $('dmObsWrap').innerHTML = r.observations
+    ? `<div style="padding:0 1.25rem;margin-bottom:.5rem;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em">Observations</div>
+       <div class="dm-obs">${r.observations}</div>`
+    : '';
+
+  $('detailBg').classList.remove('hide');
+  $('detailModal').scrollTop = 0;
+}
+
+function closeDetail(e) {
+  if (e.target === $('detailBg')) closeDetailDirect();
+}
+function closeDetailDirect() {
+  $('detailBg').classList.add('hide');
+}
+
+function openLightbox(src) {
+  $('lbImg').src = src;
+  $('lbBg').classList.remove('hide');
 }
 
 /* ═══════════════════════════════════════════
