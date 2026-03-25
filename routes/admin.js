@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
   if (req.query.action !== 'list') return res.json({ ok: false, err: 'Action inconnue' });
   try {
     const [rows] = await db.execute(
-      `SELECT id, username, nom, niveau, role, zone
+      `SELECT id, username, nom, niveau, role, zone, email, specialite
        FROM users ORDER BY niveau, username`
     );
     res.json({ ok: true, users: rows });
@@ -27,6 +27,27 @@ router.get('/', async (req, res) => {
   }
 });
 
+  // GET /api/admin?action=assignees&niveau=3  — utilisateurs pour dropdown NA
+ /* router.get('/assignees', async (req, res) => {
+    const currentUser = req.session.user;
+    const targetNiveau = parseInt(req.query.niveau);
+    try {
+      // Retourne les utilisateurs de niveau <= currentUser.niveau (même ou inférieur dans la hiérarchie)
+      // Pour un LPA 2 (segment leader), affiche LPA 2 et LPA 3 (shift leaders)
+      // Pour un LPA 1 (directeur), affiche LPA 1, 2 et 3
+      const [rows] = await db.execute(
+        `SELECT id, username, nom, niveau, role, zone, email, specialite
+        FROM users
+        WHERE niveau >= ? AND role != 'super_admin'
+        ORDER BY niveau, nom`,
+        [targetNiveau]
+      );
+      res.json({ ok: true, users: rows });
+    } catch (e) {
+      res.json({ ok: false, err: e.message });
+    }
+  });
+*/
 // POST /api/admin
 router.post('/', async (req, res) => {
   const { action } = req.body ?? {};
@@ -34,7 +55,7 @@ router.post('/', async (req, res) => {
   try {
     // ── Ajouter ────────────────────────────────────────────────
     if (action === 'add') {
-      const { username, nom, password, niveau, role, zone } = req.body;
+      const { username, nom, password, niveau, role, zone, email, specialite } = req.body;
       if (!username || !nom || (password ?? '').length < 6 || ![1, 2, 3].includes(parseInt(niveau)))
         return res.json({ ok: false, err: 'Données invalides (mdp min 6 car.)' });
 
@@ -43,30 +64,35 @@ router.post('/', async (req, res) => {
 
       const hash = await bcrypt.hash(password, 10);
       const [result] = await db.execute(
-        'INSERT INTO users (username, password, nom, niveau, role, zone) VALUES (?,?,?,?,?,?)',
-        [username, hash, nom, parseInt(niveau), role ?? '', zone ?? '']
+        'INSERT INTO users (username, password, nom, niveau, role, zone, email, specialite) VALUES (?,?,?,?,?,?,?,?)',
+        [username, hash, nom, parseInt(niveau), role ?? '', zone ?? '', email ?? '', specialite ?? '']
       );
       return res.json({ ok: true, id: result.insertId });
     }
 
     // ── Modifier ────────────────────────────────────────────────
     if (action === 'edit') {
-      const { id, nom, role, zone, niveau, password } = req.body;
+      const { id, nom, role, zone, niveau, password, email, specialite } = req.body;
       if (!id || (nom ?? '').length < 2)
         return res.json({ ok: false, err: 'Données invalides' });
 
-      // Empêcher de modifier le rôle super_admin de son propre compte
       if (parseInt(id) === parseInt(req.session.user.id) && role === 'super_admin') {
-        await db.execute('UPDATE users SET nom=?, zone=? WHERE id=?',
-          [nom, zone ?? '', id]);
+        await db.execute(
+          'UPDATE users SET nom=?, zone=?, email=?, specialite=? WHERE id=?',
+          [nom, zone ?? '', email ?? '', specialite ?? '', id]
+        );
       } else {
         const niv = parseInt(niveau);
         if ([1, 2, 3].includes(niv)) {
-          await db.execute('UPDATE users SET nom=?, role=?, zone=?, niveau=? WHERE id=?',
-            [nom, role ?? '', zone ?? '', niv, id]);
+          await db.execute(
+            'UPDATE users SET nom=?, role=?, zone=?, niveau=?, email=?, specialite=? WHERE id=?',
+            [nom, role ?? '', zone ?? '', niv, email ?? '', specialite ?? '', id]
+          );
         } else {
-          await db.execute('UPDATE users SET nom=?, role=?, zone=? WHERE id=?',
-            [nom, role ?? '', zone ?? '', id]);
+          await db.execute(
+            'UPDATE users SET nom=?, role=?, zone=?, email=?, specialite=? WHERE id=?',
+            [nom, role ?? '', zone ?? '', email ?? '', specialite ?? '', id]
+          );
         }
       }
 
@@ -82,7 +108,6 @@ router.post('/', async (req, res) => {
       const { id } = req.body;
       if (parseInt(id) === parseInt(req.session.user.id))
         return res.json({ ok: false, err: 'Impossible de se supprimer soi-même' });
-
       await db.execute('DELETE FROM users WHERE id = ?', [id]);
       return res.json({ ok: true });
     }

@@ -7,248 +7,250 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:     #0b1120;
-  --card:   #101826;
-  --card2:  #18243a;
-  --border: #1c2d44;
-  --text:   #ddeeff;
-  --muted:  #4e6a88;
-  --cyan:   #0ea5e9;
-  --green:  #22c55e;
-  --amber:  #f59e0b;
-  --red:    #ef4444;
-  --purple: #a78bfa;
-  --l1:     #a78bfa;
-  --l2:     #38bdf8;
-  --l3:     #34d399;
+  --bg:     #0b1120; --card:  #101826; --card2: #18243a;
+  --border: #1c2d44; --text:  #ddeeff; --muted: #4e6a88;
+  --cyan:   #0ea5e9; --green: #22c55e; --amber: #f59e0b; --red: #ef4444;
+  --purple: #a78bfa; --l1: #a78bfa; --l2: #38bdf8; --l3: #34d399;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px; -webkit-font-smoothing: antialiased; }
-h1,h2,h3,.logo { font-family: 'Syne', sans-serif; }
-.hide { display: none !important; }
-input, select, textarea, button { font-family: inherit; font-size: 14px; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,.logo{font-family:'Syne',sans-serif;}
+.hide{display:none!important;}
+input,select,textarea,button{font-family:inherit;font-size:14px;}
 
-/* ─── LOGIN ─────────────────────────────────── */
-#loginPage {
-  min-height: 100vh; display: flex; align-items: center; justify-content: center;
-  background: radial-gradient(ellipse 70% 55% at 50% 0%, #0b2240 0%, var(--bg) 65%);
-}
-.lbox { width: 360px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 2.25rem 2rem; box-shadow: 0 24px 64px #00000055; }
-.lbox .logo { font-size: 1.25rem; font-weight: 800; margin-bottom: .2rem; }
-.lbox .logo span { color: var(--cyan); }
-.lbox .sub  { color: var(--muted); font-size: 12px; margin-bottom: 1.75rem; justify-self: center; }
-.fld        { margin-bottom: 1rem; }
-.fld label  { display: block; font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .35rem; }
-.fld input  { width: 100%; padding: .6rem .85rem; background: var(--card2); border: 1px solid var(--border); border-radius: 7px; color: var(--text); outline: none; transition: border-color .2s; }
-.fld input:focus { border-color: var(--cyan); }
-.btn-login  { width: 100%; padding: .68rem; background: var(--cyan); border: none; border-radius: 7px; color: #fff; font-family: 'Syne', sans-serif; font-weight: 700; cursor: pointer; transition: opacity .2s; margin-top: .25rem; }
-.btn-login:hover { opacity: .88; }
-.lerr { color: var(--red); font-size: 12px; text-align: center; margin-top: .6rem; }
+/* LOGIN */
+#loginPage{min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse 70% 55% at 50% 0%,#0b2240 0%,var(--bg) 65%);}
+.lbox{width:360px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2.25rem 2rem;box-shadow:0 24px 64px #00000055;}
+.lbox .logo{font-size:1.25rem;font-weight:800;margin-bottom:.2rem;}
+.lbox .sub{color:var(--muted);font-size:12px;margin-bottom:1.75rem;}
+.fld{margin-bottom:1rem;}
+.fld label{display:block;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.35rem;}
+.fld input{width:100%;padding:.6rem .85rem;background:var(--card2);border:1px solid var(--border);border-radius:7px;color:var(--text);outline:none;transition:border-color .2s;}
+.fld input:focus{border-color:var(--cyan);}
+.btn-login{width:100%;padding:.68rem;background:var(--cyan);border:none;border-radius:7px;color:#fff;font-family:'Syne',sans-serif;font-weight:700;cursor:pointer;transition:opacity .2s;margin-top:.25rem;}
+.btn-login:hover{opacity:.88;}
+.lerr{color:var(--red);font-size:12px;text-align:center;margin-top:.6rem;}
 
-/* ─── APP ───────────────────────────────────── */
-#appPage  { display: none; min-height: 100vh; }
-.topbar   { display: flex; align-items: center; justify-content: space-between; padding: .7rem 1.5rem; background: var(--card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
-.topbar .logo { font-size: 1.05rem; }
-.topbar .logo span { color: var(--cyan); }
-.tb-r     { display: flex; align-items: center; gap: .85rem; }
-.uinfo    { font-size: 12px; color: var(--muted); }
-.lv-pill  { font-size: 11px; font-weight: 700; padding: .18rem .65rem; border-radius: 10px; font-family: 'Syne', sans-serif; }
-.btn-out  { padding: .32rem .8rem; border-radius: 6px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; font-size: 12px; transition: all .15s; }
-.btn-out:hover { border-color: var(--red); color: var(--red); }
+/* APP */
+#appPage{display:none;min-height:100vh;}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:.7rem 1.5rem;background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;}
+.tb-r{display:flex;align-items:center;gap:.85rem;}
+.uinfo{font-size:12px;color:var(--muted);}
+.lv-pill{font-size:11px;font-weight:700;padding:.18rem .65rem;border-radius:10px;font-family:'Syne',sans-serif;}
+.btn-out{padding:.32rem .8rem;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:12px;transition:all .15s;}
+.btn-out:hover{border-color:var(--red);color:var(--red);}
 
 /* TABS */
-.tabs   { display: flex; background: var(--card); border-bottom: 1px solid var(--border); padding: 0 1.5rem; gap: .1rem; overflow-x: auto; }
-.tab    { padding: .55rem 1rem; background: transparent; border: none; border-bottom: 2px solid transparent; color: var(--muted); font-size: 13px; font-weight: 500; cursor: pointer; transition: all .15s; margin-bottom: -1px; white-space: nowrap; }
-.tab.on { color: var(--text); border-bottom-color: var(--cyan); }
-.pane   { display: none; padding: 1.5rem; max-width: 1100px; margin: 0 auto; }
-.pane.on{ display: block; }
+.tabs{display:flex;background:var(--card);border-bottom:1px solid var(--border);padding:0 1.5rem;gap:.1rem;overflow-x:auto;}
+.tab{padding:.55rem 1rem;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--muted);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;margin-bottom:-1px;white-space:nowrap;}
+.tab.on{color:var(--text);border-bottom-color:var(--cyan);}
+.pane{display:none;padding:1.5rem;max-width:1100px;margin:0 auto;}
+.pane.on{display:block;}
 
-/* ─── DASHBOARD ─────────────────────────────── */
-.stats  { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: .8rem; margin-bottom: 1.4rem; }
-.stat   { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.15rem; }
-.s-lbl  { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .4rem; font-weight: 600; }
-.s-val  { font-family: 'Syne', sans-serif; font-size: 1.75rem; font-weight: 800; line-height: 1; }
-.s-sub  { font-size: 12px; color: var(--muted); margin-top: .25rem; }
-.g2     { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1rem; margin-bottom: 1.2rem; }
+/* DASHBOARD */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.8rem;margin-bottom:1.4rem;}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem 1.15rem;}
+.s-lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem;font-weight:600;}
+.s-val{font-family:'Syne',sans-serif;font-size:1.75rem;font-weight:800;line-height:1;}
+.s-sub{font-size:12px;color:var(--muted);margin-top:.25rem;}
+.g2{display:grid;grid-template-columns:1.35fr 1fr;gap:1rem;margin-bottom:1.2rem;}
 @media(max-width:680px){.g2{grid-template-columns:1fr}}
-.card   { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-.ch     { display: flex; justify-content: space-between; align-items: center; padding: .65rem 1rem; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: .4rem; }
-.ch h3  { font-size: 13px; font-weight: 600; }
-table   { width: 100%; border-collapse: collapse; font-size: 13px; }
-th      { padding: .45rem .9rem; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); border-bottom: 1px solid var(--border); font-weight: 600; }
-td      { padding: .55rem .9rem; border-bottom: 1px solid #ffffff04; }
-tr:last-child td { border-bottom: none; }
-tbody tr:hover td { background: #ffffff03; }
-.chip   { font-size: 11px; font-weight: 700; padding: .12rem .45rem; border-radius: 4px; font-family: 'Syne', sans-serif; }
-.bar-r  { display: flex; align-items: center; gap: .7rem; padding: .4rem 1rem; font-size: 12px; }
-.bar-n  { width: 115px; color: var(--muted); }
-.bar-t  { flex: 1; background: var(--card2); border-radius: 3px; height: 6px; overflow: hidden; }
-.bar-f  { height: 100%; border-radius: 3px; transition: width .7s ease; }
-.bar-p  { width: 34px; text-align: right; font-weight: 600; }
-.empty  { text-align: center; padding: 2.5rem; color: var(--muted); font-size: 13px; }
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.ch{display:flex;justify-content:space-between;align-items:center;padding:.65rem 1rem;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:.4rem;}
+.ch h3{font-size:13px;font-weight:600;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th{padding:.45rem .9rem;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);border-bottom:1px solid var(--border);font-weight:600;}
+td{padding:.55rem .9rem;border-bottom:1px solid #ffffff04;}
+tr:last-child td{border-bottom:none;}
+tbody tr:hover td{background:#ffffff03;}
+.chip{font-size:11px;font-weight:700;padding:.12rem .45rem;border-radius:4px;font-family:'Syne',sans-serif;}
+.bar-r{display:flex;align-items:center;gap:.7rem;padding:.4rem 1rem;font-size:12px;}
+.bar-n{width:130px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bar-t{flex:1;background:var(--card2);border-radius:3px;height:6px;overflow:hidden;}
+.bar-f{height:100%;border-radius:3px;transition:width .7s ease;}
+.bar-p{width:36px;text-align:right;font-weight:600;}
+.empty{text-align:center;padding:2.5rem;color:var(--muted);font-size:13px;}
 
-/* ─── FORMULAIRE ────────────────────────────── */
-.fs     { background: var(--card); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 1rem; overflow: hidden; }
-.fh     { display: flex; align-items: center; gap: .55rem; padding: .65rem 1rem; background: var(--card2); border-bottom: 1px solid var(--border); }
-.fh h3  { font-size: 13px; font-weight: 600; }
-.fh .nt { margin-left: auto; font-size: 11px; color: var(--muted); }
-.fb     { padding: 1rem; }
-.mg     { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: .7rem; margin-bottom: .9rem; }
-.ff label    { display: block; font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .3rem; }
-.ff input, .ff select, .ff textarea { width: 100%; padding: .55rem .8rem; background: var(--card2); border: 1px solid var(--border); border-radius: 7px; color: var(--text); outline: none; transition: border-color .2s; }
-.ff input:focus, .ff select:focus, .ff textarea:focus { border-color: var(--cyan); }
-.ff input[readonly] { opacity: .5; cursor: default; }
-.ff textarea { resize: vertical; min-height: 68px; line-height: 1.5; }
-.qr     { display: flex; align-items: center; gap: .75rem; padding: .58rem 0; border-bottom: 1px solid #ffffff04; }
-.qr:last-child { border: none; }
-.qn     { font-size: 12px; font-weight: 600; color: var(--cyan); width: 20px; flex-shrink: 0; text-align: right; }
-.qt     { flex: 1; font-size: 13px; line-height: 1.45; color: #90aec8; }
-.qo     { display: flex; gap: .28rem; flex-shrink: 0; }
-.opt    { padding: .22rem .5rem; border-radius: 5px; border: 1px solid var(--border); background: transparent; color: var(--muted); font-size: 12px; font-weight: 700; cursor: pointer; transition: all .12s; min-width: 30px; text-align: center; }
-.opt:hover { border-color: var(--text); color: var(--text); }
-.opt.O  { background: #22c55e18; border-color: var(--green); color: var(--green); }
-.opt.X  { background: #ef444418; border-color: var(--red); color: var(--red); }
-.opt.NA { background: #ffffff08; border-color: var(--muted); color: var(--muted); }
-.btn-photo { padding: .22rem .5rem; border-radius: 5px; border: 1px solid var(--border); background: transparent; color: var(--muted); font-size: 13px; cursor: pointer; transition: all .12s; display: none; }
-.btn-photo.visible { display: inline-block; }
-.btn-photo.has-photo { background: #f59e0b18; border-color: var(--amber); color: var(--amber); }
-.photo-preview { width: 48px; height: 48px; object-fit: cover; border-radius: 5px; border: 1px solid var(--border); cursor: pointer; display: none; margin-left: .3rem; vertical-align: middle; }
-.photo-preview.visible { display: inline-block; }
-.ff2    { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
-.foot   { display: flex; align-items: center; gap: .7rem; padding: .75rem 1rem; border-top: 1px solid var(--border); background: var(--card2); }
-.lsc    { margin-right: auto; font-size: 13px; color: var(--muted); }
-.lsc b  { font-size: 15px; }
-.btn-r  { padding: .5rem 1rem; border-radius: 7px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; transition: all .15s; }
-.btn-r:hover { border-color: var(--text); color: var(--text); }
-.btn-s  { padding: .5rem 1.3rem; border-radius: 7px; border: none; background: var(--cyan); color: #fff; font-weight: 600; cursor: pointer; transition: opacity .15s; }
-.btn-s:hover { opacity: .88; }
-.btn-s:disabled { opacity: .4; cursor: not-allowed; }
+/* FORMULAIRE */
+.fs{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:1rem;overflow:hidden;}
+.fh{display:flex;align-items:center;gap:.55rem;padding:.65rem 1rem;background:var(--card2);border-bottom:1px solid var(--border);}
+.fh h3{font-size:13px;font-weight:600;}
+.fh .nt{margin-left:auto;font-size:11px;color:var(--muted);}
+.fb{padding:1rem;}
+.mg{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:.7rem;margin-bottom:.9rem;}
+.ff label{display:block;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem;}
+.ff input,.ff select,.ff textarea{width:100%;padding:.55rem .8rem;background:var(--card2);border:1px solid var(--border);border-radius:7px;color:var(--text);outline:none;transition:border-color .2s;}
+.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:var(--cyan);}
+.ff input[readonly]{opacity:.5;cursor:default;}
+.ff textarea{resize:vertical;min-height:60px;line-height:1.5;}
+.ff select option{background:var(--card2);color:var(--text);}
 
-/* ─── PROFIL ────────────────────────────────── */
-.profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+/* Per-question row */
+.qr{border-bottom:1px solid #ffffff04;}
+.qr:last-child{border:none;}
+.qr-top{display:flex;align-items:center;gap:.75rem;padding:.58rem 0;}
+.qn{font-size:12px;font-weight:600;color:var(--cyan);width:20px;flex-shrink:0;text-align:right;}
+.qt{flex:1;font-size:13px;line-height:1.45;color:#90aec8;}
+.qo{display:flex;gap:.28rem;flex-shrink:0;align-items:center;}
+.opt{padding:.22rem .5rem;border-radius:5px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:12px;font-weight:700;cursor:pointer;transition:all .12s;min-width:30px;text-align:center;}
+.opt:hover{border-color:var(--text);color:var(--text);}
+.opt.O{background:#22c55e18;border-color:var(--green);color:var(--green);}
+.opt.X{background:#ef444418;border-color:var(--red);color:var(--red);}
+.opt.NA{background:#ffffff08;border-color:var(--muted);color:var(--muted);}
+.btn-photo{padding:.22rem .5rem;border-radius:5px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:13px;cursor:pointer;transition:all .12s;display:none;}
+.btn-photo.visible{display:inline-block;}
+.btn-photo.has-photo{background:#f59e0b18;border-color:var(--amber);color:var(--amber);}
+.photo-preview{width:40px;height:40px;object-fit:cover;border-radius:5px;border:1px solid var(--border);cursor:pointer;display:none;margin-left:.2rem;vertical-align:middle;}
+.photo-preview.visible{display:inline-block;}
+
+/* NA extras panel (obs + assignee) */
+.qr-na-extras{display:none;padding:.5rem 0 .7rem 28px;gap:.7rem;}
+.qr-na-extras.visible{display:grid;grid-template-columns:1fr 1fr;}
+@media(max-width:640px){.qr-na-extras.visible{grid-template-columns:1fr;}}
+.na-obs-field textarea{min-height:50px;font-size:12px;}
+.na-assign-field select{font-size:12px;}
+
+.ff2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+.foot{display:flex;align-items:center;gap:.7rem;padding:.75rem 1rem;border-top:1px solid var(--border);background:var(--card2);}
+.lsc{margin-right:auto;font-size:13px;color:var(--muted);}
+.lsc b{font-size:15px;}
+.btn-r{padding:.5rem 1rem;border-radius:7px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .15s;}
+.btn-r:hover{border-color:var(--text);color:var(--text);}
+.btn-s{padding:.5rem 1.3rem;border-radius:7px;border:none;background:var(--cyan);color:#fff;font-weight:600;cursor:pointer;transition:opacity .15s;}
+.btn-s:hover{opacity:.88;}
+.btn-s:disabled{opacity:.4;cursor:not-allowed;}
+
+/* PROFIL */
+.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
 @media(max-width:600px){.profile-grid{grid-template-columns:1fr}}
-.section-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 1rem; }
-.section-head { padding: .7rem 1rem; background: var(--card2); border-bottom: 1px solid var(--border); font-weight: 600; font-size: 13px; display: flex; align-items: center; gap: .5rem; }
-.section-body { padding: 1.1rem 1rem; }
-.form-row     { margin-bottom: .85rem; }
-.form-row:last-child { margin-bottom: 0; }
-.form-row label { display: block; font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .3rem; }
-.form-row input { width: 100%; padding: .55rem .8rem; background: var(--card2); border: 1px solid var(--border); border-radius: 7px; color: var(--text); outline: none; transition: border-color .2s; }
-.form-row input:focus { border-color: var(--cyan); }
-.form-row input[readonly] { opacity: .45; cursor: default; }
-.btn-save { padding: .5rem 1.3rem; border-radius: 7px; border: none; background: var(--cyan); color: #fff; font-weight: 600; cursor: pointer; transition: opacity .15s; margin-top: .6rem; }
-.btn-save:hover { opacity: .88; }
-.info-row { display: flex; justify-content: space-between; padding: .45rem 0; border-bottom: 1px solid #ffffff05; font-size: 13px; }
-.info-row:last-child { border: none; }
-.info-row .lbl { color: var(--muted); }
+.section-card{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:1rem;}
+.section-head{padding:.7rem 1rem;background:var(--card2);border-bottom:1px solid var(--border);font-weight:600;font-size:13px;display:flex;align-items:center;gap:.5rem;}
+.section-body{padding:1.1rem 1rem;}
+.form-row{margin-bottom:.85rem;}
+.form-row:last-child{margin-bottom:0;}
+.form-row label{display:block;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.3rem;}
+.form-row input{width:100%;padding:.55rem .8rem;background:var(--card2);border:1px solid var(--border);border-radius:7px;color:var(--text);outline:none;transition:border-color .2s;}
+.form-row input:focus{border-color:var(--cyan);}
+.form-row input[readonly]{opacity:.45;cursor:default;}
+.btn-save{padding:.5rem 1.3rem;border-radius:7px;border:none;background:var(--cyan);color:#fff;font-weight:600;cursor:pointer;transition:opacity .15s;margin-top:.6rem;}
+.btn-save:hover{opacity:.88;}
+.info-row{display:flex;justify-content:space-between;padding:.45rem 0;border-bottom:1px solid #ffffff05;font-size:13px;}
+.info-row:last-child{border:none;}
+.info-row .lbl{color:var(--muted);}
 
-/* ─── ADMIN USERS ───────────────────────────── */
-.admin-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-.btn-add { padding: .45rem 1rem; border-radius: 7px; border: none; background: var(--cyan); color: #fff; font-weight: 600; cursor: pointer; font-size: 13px; transition: opacity .15s; }
-.btn-add:hover { opacity: .88; }
-.btn-edit-sm  { padding: .2rem .55rem; border-radius: 5px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; font-size: 11px; transition: all .12s; }
-.btn-edit-sm:hover  { border-color: var(--cyan); color: var(--cyan); }
-.btn-del-sm   { padding: .2rem .55rem; border-radius: 5px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; font-size: 11px; transition: all .12s; }
-.btn-del-sm:hover   { border-color: var(--red); color: var(--red); }
+/* ADMIN USERS */
+.admin-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;}
+.btn-add{padding:.45rem 1rem;border-radius:7px;border:none;background:var(--cyan);color:#fff;font-weight:600;cursor:pointer;font-size:13px;transition:opacity .15s;}
+.btn-add:hover{opacity:.88;}
+.btn-edit-sm{padding:.2rem .55rem;border-radius:5px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:11px;transition:all .12s;}
+.btn-edit-sm:hover{border-color:var(--cyan);color:var(--cyan);}
+.btn-del-sm{padding:.2rem .55rem;border-radius:5px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:11px;transition:all .12s;}
+.btn-del-sm:hover{border-color:var(--red);color:var(--red);}
 
-/* ─── SUPER ADMIN DASHBOARD ─────────────────── */
-.sa-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; flex-wrap: wrap; gap: .6rem; }
-.sa-title  { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 800; }
-.sa-title small { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; color: var(--muted); display: block; margin-top: .1rem; }
-.btn-refresh { padding: .42rem 1rem; border-radius: 7px; border: 1px solid var(--purple); background: #a78bfa12; color: var(--purple); font-weight: 600; font-size: 13px; cursor: pointer; transition: all .15s; display: flex; align-items: center; gap: .4rem; }
-.btn-refresh:hover { background: #a78bfa22; }
-.btn-refresh:disabled { opacity: .5; cursor: not-allowed; }
-.sa-section { margin-bottom: 1.3rem; }
-.sa-g2 { display: grid; grid-template-columns: 1.5fr 1fr; gap: 1rem; margin-bottom: 1.3rem; }
-@media(max-width:760px){ .sa-g2 { grid-template-columns: 1fr; } }
-.dist-bar-wrap { padding: .6rem 1rem; }
-.dist-bar-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: .35rem; }
-.dist-bar-label .lv-name { font-size: 12px; font-weight: 600; }
-.dist-bar-label .lv-info { font-size: 11px; color: var(--muted); }
-.dist-stacked { display: flex; height: 18px; border-radius: 6px; overflow: hidden; gap: 1px; margin-bottom: .3rem; }
-.dist-seg { min-width: 0; transition: flex .6s ease; }
-.dist-legend { display: flex; gap: .9rem; font-size: 11px; }
-.dist-divider { border: none; border-top: 1px solid var(--border); margin: .3rem 0; }
-.tab-sa { padding: .18rem .6rem; border-radius: 5px; border: 1px solid var(--border); background: transparent; color: var(--muted); font-size: 11px; font-weight: 700; cursor: pointer; transition: all .12s; font-family: 'Syne', sans-serif; }
-.tab-sa.on { background: #0ea5e918; border-color: var(--cyan); color: var(--cyan); }
-.sa-q-row { display: flex; align-items: flex-start; gap: .6rem; padding: .5rem 1rem; border-bottom: 1px solid #ffffff04; }
-.sa-q-row:last-child { border: none; }
-.sa-q-num { font-size: 11px; font-weight: 700; color: var(--cyan); width: 22px; flex-shrink: 0; text-align: right; padding-top: 2px; }
-.sa-q-txt { flex: 1; font-size: 12px; color: #90aec8; line-height: 1.4; }
-.sa-q-bar { width: 120px; flex-shrink: 0; display: flex; align-items: center; gap: .4rem; }
-.sa-q-bar .bar-t { flex: 1; }
-.sa-q-count { width: 32px; text-align: right; font-size: 12px; font-weight: 700; color: var(--red); }
-.scroll-table { max-height: 320px; overflow-y: auto; }
-.scroll-table::-webkit-scrollbar { width: 4px; }
-.scroll-table::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+/* SUPER ADMIN DASHBOARD */
+.sa-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem;flex-wrap:wrap;gap:.6rem;}
+.sa-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;}
+.sa-title small{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;color:var(--muted);display:block;margin-top:.1rem;}
+.btn-refresh{padding:.42rem 1rem;border-radius:7px;border:1px solid var(--purple);background:#a78bfa12;color:var(--purple);font-weight:600;font-size:13px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:.4rem;}
+.btn-refresh:hover{background:#a78bfa22;}
+.btn-refresh:disabled{opacity:.5;cursor:not-allowed;}
+.sa-section{margin-bottom:1.3rem;}
+.sa-g2{display:grid;grid-template-columns:1.5fr 1fr;gap:1rem;margin-bottom:1.3rem;}
+@media(max-width:760px){.sa-g2{grid-template-columns:1fr;}}
+.dist-bar-wrap{padding:.6rem 1rem;}
+.dist-bar-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:.35rem;}
+.dist-bar-label .lv-name{font-size:12px;font-weight:600;}
+.dist-bar-label .lv-info{font-size:11px;color:var(--muted);}
+.dist-stacked{display:flex;height:18px;border-radius:6px;overflow:hidden;gap:1px;margin-bottom:.3rem;}
+.dist-seg{min-width:0;transition:flex .6s ease;}
+.dist-legend{display:flex;gap:.9rem;font-size:11px;}
+.dist-divider{border:none;border-top:1px solid var(--border);margin:.3rem 0;}
+.tab-sa{padding:.18rem .6rem;border-radius:5px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;transition:all .12s;font-family:'Syne',sans-serif;}
+.tab-sa.on{background:#0ea5e918;border-color:var(--cyan);color:var(--cyan);}
+.sa-q-row{display:flex;align-items:flex-start;gap:.6rem;padding:.5rem 1rem;border-bottom:1px solid #ffffff04;}
+.sa-q-row:last-child{border:none;}
+.sa-q-num{font-size:11px;font-weight:700;color:var(--cyan);width:22px;flex-shrink:0;text-align:right;padding-top:2px;}
+.sa-q-txt{flex:1;font-size:12px;color:#90aec8;line-height:1.4;}
+.sa-q-bar{width:120px;flex-shrink:0;display:flex;align-items:center;gap:.4rem;}
+.sa-q-bar .bar-t{flex:1;}
+.sa-q-count{width:32px;text-align:right;font-size:12px;font-weight:700;color:var(--red);}
+.scroll-table{max-height:320px;overflow-y:auto;}
+.scroll-table::-webkit-scrollbar{width:4px;}
+.scroll-table::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
 
-/* ─── MODAL ─────────────────────────────────── */
-.modal-bg { position: fixed; inset: 0; background: #00000088; z-index: 100; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(2px); }
-.modal    { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem 1.5rem; width: 420px; max-width: 95vw; box-shadow: 0 24px 64px #00000055; }
-.modal h3 { font-size: 1rem; margin-bottom: 1.2rem; }
-.modal .form-row input, .modal .form-row select { width: 100%; padding: .55rem .8rem; background: var(--card2); border: 1px solid var(--border); border-radius: 7px; color: var(--text); outline: none; }
-.modal .form-row input:focus, .modal .form-row select:focus { border-color: var(--cyan); }
-.modal-foot { display: flex; justify-content: flex-end; gap: .6rem; margin-top: 1.2rem; }
-.btn-cancel { padding: .45rem .9rem; border-radius: 7px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; }
-.btn-confirm { padding: .45rem 1.1rem; border-radius: 7px; border: none; background: var(--cyan); color: #fff; font-weight: 600; cursor: pointer; }
+/* EMAIL LOG table */
+.email-tag{font-size:10px;font-weight:700;padding:.1rem .4rem;border-radius:4px;background:#0ea5e918;border:1px solid var(--cyan);color:var(--cyan);}
+.email-tag.has-photo{background:#f59e0b18;border-color:var(--amber);color:var(--amber);}
 
-/* ─── DETAIL MODAL ──────────────────────────── */
-.detail-modal-bg { position: fixed; inset: 0; background: #000000aa; z-index: 200; display: flex; align-items: flex-start; justify-content: center; padding: 2vh 1rem; overflow-y: auto; backdrop-filter: blur(3px); }
-.detail-modal { background: var(--card); border: 1px solid var(--border); border-radius: 14px; width: 700px; max-width: 98vw; box-shadow: 0 32px 80px #00000066; }
-.dm-head { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; background: var(--card2); border-bottom: 1px solid var(--border); border-radius: 14px 14px 0 0; }
-.dm-head h2 { font-family: 'Syne', sans-serif; font-size: .95rem; font-weight: 800; }
-.dm-close { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: .22rem .6rem; border-radius: 6px; cursor: pointer; font-size: 15px; transition: all .15s; }
-.dm-close:hover { border-color: var(--red); color: var(--red); }
-.dm-meta { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .6rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border); }
-.dm-meta-item .label { font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .2rem; }
-.dm-meta-item .value { font-size: 13px; font-weight: 500; }
-.dm-qlist { padding: .5rem 1.25rem 1rem; }
-.dm-qlist h3 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: .6rem; padding-top: .4rem; }
-.dm-q { display: flex; align-items: flex-start; gap: .7rem; padding: .5rem 0; border-bottom: 1px solid #ffffff04; }
-.dm-q:last-child { border: none; }
-.dm-q-num { font-size: 11px; font-weight: 700; color: var(--cyan); width: 22px; flex-shrink: 0; padding-top: 2px; text-align: right; }
-.dm-q-txt { flex: 1; font-size: 12.5px; color: #90aec8; line-height: 1.45; }
-.dm-q-ans { flex-shrink: 0; display: flex; align-items: center; gap: .5rem; }
-.ans-badge { font-size: 12px; font-weight: 800; padding: .2rem .55rem; border-radius: 5px; font-family: 'Syne', sans-serif; min-width: 34px; text-align: center; }
-.ans-O  { background: #22c55e18; border: 1px solid var(--green); color: var(--green); }
-.ans-X  { background: #ef444418; border: 1px solid var(--red);   color: var(--red);   }
-.ans-NA { background: #ffffff08; border: 1px solid var(--muted); color: var(--muted); }
-.ans-??  { background: #ffffff06; border: 1px solid var(--border); color: var(--muted); }
-.dm-photo { width: 52px; height: 52px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border); cursor: zoom-in; transition: transform .15s; flex-shrink: 0; }
-.dm-photo:hover { transform: scale(1.06); border-color: var(--cyan); }
-.dm-obs { margin: 0 1.25rem 1.25rem; background: var(--card2); border: 1px solid var(--border); border-radius: 8px; padding: .75rem 1rem; font-size: 12.5px; color: #90aec8; line-height: 1.6; white-space: pre-wrap; }
+/* MODAL */
+.modal-bg{position:fixed;inset:0;background:#00000088;z-index:100;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(2px);}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.75rem 1.5rem;width:460px;max-width:95vw;max-height:92vh;overflow-y:auto;box-shadow:0 24px 64px #00000055;}
+.modal h3{font-size:1rem;margin-bottom:1.2rem;}
+.modal .form-row input,.modal .form-row select{width:100%;padding:.55rem .8rem;background:var(--card2);border:1px solid var(--border);border-radius:7px;color:var(--text);outline:none;}
+.modal .form-row input:focus,.modal .form-row select:focus{border-color:var(--cyan);}
+.modal-foot{display:flex;justify-content:flex-end;gap:.6rem;margin-top:1.2rem;}
+.btn-cancel{padding:.45rem .9rem;border-radius:7px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;}
+.btn-confirm{padding:.45rem 1.1rem;border-radius:7px;border:none;background:var(--cyan);color:#fff;font-weight:600;cursor:pointer;}
+.modal-divider{border:none;border-top:1px solid var(--border);margin:1rem 0 .85rem;}
+.modal-section-title{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.7rem;}
 
-/* Lightbox photo */
-.lb-bg { position: fixed; inset: 0; background: #000000cc; z-index: 300; display: flex; align-items: center; justify-content: center; cursor: zoom-out; }
-.lb-bg img { max-width: 92vw; max-height: 88vh; border-radius: 8px; box-shadow: 0 20px 60px #000000aa; }
+/* DETAIL MODAL */
+.detail-modal-bg{position:fixed;inset:0;background:#000000aa;z-index:200;display:flex;align-items:flex-start;justify-content:center;padding:2vh 1rem;overflow-y:auto;backdrop-filter:blur(3px);}
+.detail-modal{background:var(--card);border:1px solid var(--border);border-radius:14px;width:720px;max-width:98vw;box-shadow:0 32px 80px #00000066;}
+.dm-head{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:var(--card2);border-bottom:1px solid var(--border);border-radius:14px 14px 0 0;}
+.dm-head h2{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:800;}
+.dm-close{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.22rem .6rem;border-radius:6px;cursor:pointer;font-size:15px;transition:all .15s;}
+.dm-close:hover{border-color:var(--red);color:var(--red);}
+.dm-meta{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.6rem;padding:1rem 1.25rem;border-bottom:1px solid var(--border);}
+.dm-meta-item .label{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.2rem;}
+.dm-meta-item .value{font-size:13px;font-weight:500;}
+.dm-qlist{padding:.5rem 1.25rem 1rem;}
+.dm-qlist h3{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.6rem;padding-top:.4rem;}
+.dm-q{padding:.55rem 0;border-bottom:1px solid #ffffff04;}
+.dm-q:last-child{border:none;}
+.dm-q-top{display:flex;align-items:flex-start;gap:.7rem;}
+.dm-q-num{font-size:11px;font-weight:700;color:var(--cyan);width:22px;flex-shrink:0;padding-top:2px;text-align:right;}
+.dm-q-txt{flex:1;font-size:12.5px;color:#90aec8;line-height:1.45;}
+.dm-q-ans{flex-shrink:0;display:flex;align-items:center;gap:.5rem;}
+.ans-badge{font-size:12px;font-weight:800;padding:.2rem .55rem;border-radius:5px;font-family:'Syne',sans-serif;min-width:34px;text-align:center;}
+.ans-O{background:#22c55e18;border:1px solid var(--green);color:var(--green);}
+.ans-X{background:#ef444418;border:1px solid var(--red);color:var(--red);}
+.ans-NA{background:#ffffff08;border:1px solid var(--muted);color:var(--muted);}
+.ans-??{background:#ffffff06;border:1px solid var(--border);color:var(--muted);}
+.dm-photo{width:52px;height:52px;object-fit:cover;border-radius:6px;border:1px solid var(--border);cursor:zoom-in;transition:transform .15s;flex-shrink:0;}
+.dm-photo:hover{transform:scale(1.06);border-color:var(--cyan);}
+.dm-q-extra{margin-top:.4rem;padding-left:30px;display:flex;flex-wrap:wrap;gap:.5rem .9rem;}
+.dm-q-obs-chip{font-size:11px;color:#90aec8;background:var(--card2);border:1px solid var(--border);border-radius:5px;padding:.2rem .6rem;font-style:italic;}
+.dm-q-assign-chip{font-size:11px;font-weight:600;color:var(--amber);background:#f59e0b12;border:1px solid #f59e0b44;border-radius:5px;padding:.2rem .6rem;}
+.dm-obs{margin:0 1.25rem 1.25rem;background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;font-size:12.5px;color:#90aec8;line-height:1.6;white-space:pre-wrap;}
 
-/* ─── TOAST ─────────────────────────────────── */
-.toast  { position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 999; padding: .7rem 1.1rem; border-radius: 9px; font-size: 13px; font-weight: 600; box-shadow: 0 6px 20px #00000050; display: none; }
-.toast.ok  { background: #22c55e18; border: 1px solid var(--green); color: var(--green); }
-.toast.err { background: #ef444418; border: 1px solid var(--red);   color: var(--red);   }
+/* Lightbox */
+.lb-bg{position:fixed;inset:0;background:#000000cc;z-index:300;display:flex;align-items:center;justify-content:center;cursor:zoom-out;}
+.lb-bg img{max-width:92vw;max-height:88vh;border-radius:8px;box-shadow:0 20px 60px #000000aa;}
+
+/* TOAST */
+.toast{position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;padding:.7rem 1.1rem;border-radius:9px;font-size:13px;font-weight:600;box-shadow:0 6px 20px #00000050;display:none;}
+.toast.ok{background:#22c55e18;border:1px solid var(--green);color:var(--green);}
+.toast.err{background:#ef444418;border:1px solid var(--red);color:var(--red);}
 </style>
 </head>
 <body>
 
-<!-- ═══════ LOGIN ═══════ -->
+<!-- LOGIN -->
 <div id="loginPage">
   <div class="lbox">
     <div class="logo"><img src="logo.png" alt="" style="max-width:stretch;"></div>
     <div class="sub">Hirschmann Automotive Oujda</div>
-    <div class="fld">
-      <label>Identifiant</label>
-      <input id="lu" type="text" placeholder="ex: shift_leader_1" autocomplete="off">
-    </div>
-    <div class="fld">
-      <label>Mot de passe</label>
-      <input id="lp" type="password" placeholder="••••••••">
-    </div>
+    <div class="fld"><label>Identifiant</label>
+      <input id="lu" type="text" placeholder="ex: shift_leader_1" autocomplete="off"></div>
+    <div class="fld"><label>Mot de passe</label>
+      <input id="lp" type="password" placeholder="••••••••"></div>
     <button class="btn-login" onclick="doLogin()">Se connecter</button>
     <div id="lerr" class="lerr hide">Identifiant ou mot de passe incorrect.</div>
   </div>
 </div>
 
-<!-- ═══════ APP ═══════ -->
+<!-- APP -->
 <div id="appPage">
   <nav class="topbar">
     <div class="logo"><img src="logo.png" alt="" style="max-width:10.2rem;"></div>
@@ -260,27 +262,23 @@ tbody tr:hover td { background: #ffffff03; }
   </nav>
 
   <div class="tabs">
-    <button class="tab on"  id="dashTab"   onclick="showTab('dash',this)">📊 Dashboard</button>
-    <button class="tab"     id="formTab"   onclick="showTab('form',this)">📝 Formulaire</button>
-    <button class="tab"     id="histTab"   onclick="showTab('hist',this)">📋 Historique</button>
-    <button class="tab"                    onclick="showTab('profil',this)">👤 Mon Profil</button>
+    <button class="tab on"  id="dashTab"    onclick="showTab('dash',this)">📊 Dashboard</button>
+    <button class="tab"     id="formTab"    onclick="showTab('form',this)">📝 Formulaire</button>
+    <button class="tab"     id="histTab"    onclick="showTab('hist',this)">📋 Historique</button>
+    <button class="tab"                     onclick="showTab('profil',this)">👤 Mon Profil</button>
     <button class="tab hide" id="sadminTab" onclick="showTab('sadmin',this)">🏠 Vue Globale</button>
     <button class="tab hide" id="adminTab"  onclick="showTab('admin',this)">⚙️ Utilisateurs</button>
   </div>
 
-  <!-- Dashboard (niveaux 1-2-3) -->
+  <!-- Dashboard normal -->
   <div class="pane on" id="pane-dash">
     <div class="stats" id="statsGrid"></div>
     <div class="g2">
       <div class="card">
-        <div class="ch">
-          <h3>Dernières soumissions</h3>
-          <span id="refreshLbl" style="font-size:11px;color:var(--muted)"></span>
-        </div>
-        <table>
-          <thead><tr><th>Date</th><th>Niveau</th><th>Auditeur</th><th>Zone</th><th>Score</th></tr></thead>
-          <tbody id="recentTbl"></tbody>
-        </table>
+        <div class="ch"><h3>Dernières soumissions</h3>
+          <span id="refreshLbl" style="font-size:11px;color:var(--muted)"></span></div>
+        <table><thead><tr><th>Date</th><th>Niveau</th><th>Auditeur</th><th>Zone</th><th>Score</th></tr></thead>
+          <tbody id="recentTbl"></tbody></table>
       </div>
       <div class="card">
         <div class="ch"><h3>Score moyen par niveau</h3></div>
@@ -296,10 +294,9 @@ tbody tr:hover td { background: #ffffff03; }
   <div class="pane" id="pane-hist">
     <div class="card">
       <div class="ch"><h3 id="histTitle">Soumissions</h3></div>
-      <table>
-        <thead><tr><th>Date</th><th>Niveau</th><th>Auditeur</th><th>Zone</th><th>Conformes</th><th>Non-conf.</th><th>Score</th><th>Observations</th></tr></thead>
-        <tbody id="histTbl"></tbody>
-      </table>
+      <table><thead><tr><th>Date</th><th>Niveau</th><th>Auditeur</th><th>Zone</th>
+        <th>Conf.</th><th>N-C</th><th>Score</th><th>Observations</th></tr></thead>
+        <tbody id="histTbl"></tbody></table>
     </div>
   </div>
 
@@ -313,6 +310,8 @@ tbody tr:hover td { background: #ffffff03; }
           <div class="info-row"><span class="lbl">Niveau</span><span id="pNiveau"></span></div>
           <div class="info-row"><span class="lbl">Rôle</span><span id="pRole"></span></div>
           <div class="info-row"><span class="lbl">Zone</span><span id="pZone"></span></div>
+          <div class="info-row"><span class="lbl">Email</span><span id="pEmail"></span></div>
+          <div class="info-row"><span class="lbl">Spécialité</span><span id="pSpecialite"></span></div>
         </div>
       </div>
       <div class="section-card">
@@ -335,22 +334,15 @@ tbody tr:hover td { background: #ffffff03; }
     </div>
   </div>
 
-  <!-- ═══ SUPER ADMIN DASHBOARD ═══ -->
+  <!-- Super Admin Dashboard -->
   <div class="pane" id="pane-sadmin">
     <div class="sa-header">
-      <div class="sa-title">
-        Tableau de Bord Global
-        <small id="saRefreshTime">—</small>
-      </div>
+      <div class="sa-title">Tableau de Bord Global<small id="saRefreshTime">—</small></div>
       <button class="btn-refresh" id="saRefreshBtn" onclick="refreshSuperDash()">
         <span id="saRefreshIcon">⟳</span> Actualiser
       </button>
     </div>
-
-    <!-- KPIs -->
     <div class="stats" id="saKpis"></div>
-
-    <!-- Distribution + Scores utilisateurs -->
     <div class="sa-g2">
       <div class="card sa-section">
         <div class="ch"><h3>Distribution des scores par niveau</h3></div>
@@ -361,8 +353,6 @@ tbody tr:hover td { background: #ffffff03; }
         <div class="scroll-table" id="saUserScores"></div>
       </div>
     </div>
-
-    <!-- Questions non-conformes -->
     <div class="card sa-section">
       <div class="ch">
         <h3>Questions les plus non-conformes (X)</h3>
@@ -373,6 +363,17 @@ tbody tr:hover td { background: #ffffff03; }
         </div>
       </div>
       <div id="saQuestionsBox"></div>
+    </div>
+
+    <!-- Email log -->
+    <div class="card sa-section">
+      <div class="ch"><h3>📧 Historique des emails envoyés (NA)</h3></div>
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Date</th><th>De</th><th>À</th><th>Email</th><th>Spécialité</th><th>Question</th><th>Photo</th></tr></thead>
+          <tbody id="saEmailLog"></tbody>
+        </table>
+      </div>
     </div>
 
     <!-- 50 dernières soumissions -->
@@ -387,24 +388,23 @@ tbody tr:hover td { background: #ffffff03; }
     </div>
   </div>
 
-  <!-- Admin Utilisateurs (super_admin uniquement) -->
+  <!-- Admin Utilisateurs -->
   <div class="pane" id="pane-admin">
     <div class="admin-toolbar">
       <h3 style="font-family:'Syne',sans-serif">Gestion des utilisateurs</h3>
       <button class="btn-add" onclick="openModalAdd()">+ Ajouter un utilisateur</button>
     </div>
     <div class="card">
-      <table>
-        <thead>
-          <tr><th>Identifiant</th><th>Nom</th><th>Niveau</th><th>Rôle</th><th>Zone</th><th>Actions</th></tr>
-        </thead>
-        <tbody id="adminTbl"></tbody>
-      </table>
+      <table><thead><tr>
+        <th>Identifiant</th><th>Nom</th><th>Niveau</th><th>Rôle</th><th>Zone</th>
+        <th>Email</th><th>Spécialité</th><th>Actions</th>
+      </tr></thead>
+        <tbody id="adminTbl"></tbody></table>
     </div>
   </div>
 </div>
 
-<!-- ─── Modal utilisateur ─── -->
+<!-- Modal utilisateur -->
 <div class="modal-bg hide" id="modalBg">
   <div class="modal">
     <h3 id="modalTitle">Ajouter un utilisateur</h3>
@@ -424,6 +424,10 @@ tbody tr:hover td { background: #ffffff03; }
     </div>
     <div class="form-row"><label>Rôle (affiché)</label><input id="mRole" placeholder="ex: Shift Leader"></div>
     <div class="form-row"><label>Zone</label><input id="mZone" placeholder="ex: Segment A"></div>
+    <hr class="modal-divider">
+    <div class="modal-section-title">📧 Coordonnées & Compétence</div>
+    <div class="form-row"><label>Email professionnel</label><input id="mEmail" type="email" placeholder="prenom.nom@hirschmann.com"></div>
+    <div class="form-row"><label>Spécialité / Fonction</label><input id="mSpecialite" placeholder="ex: Qualité, Maintenance…"></div>
     <div class="modal-foot">
       <button class="btn-cancel" onclick="closeModal()">Annuler</button>
       <button class="btn-confirm" onclick="saveModal()">Enregistrer</button>
@@ -431,7 +435,7 @@ tbody tr:hover td { background: #ffffff03; }
   </div>
 </div>
 
-<!-- ─── Détail soumission (super admin) ─── -->
+<!-- Détail soumission -->
 <div class="detail-modal-bg hide" id="detailBg" onclick="closeDetail(event)">
   <div class="detail-modal" id="detailModal">
     <div class="dm-head">
@@ -447,7 +451,7 @@ tbody tr:hover td { background: #ffffff03; }
   </div>
 </div>
 
-<!-- Lightbox photo -->
+<!-- Lightbox -->
 <div class="lb-bg hide" id="lbBg" onclick="$('lbBg').classList.add('hide')">
   <img id="lbImg" src="" alt="Photo">
 </div>
@@ -513,37 +517,32 @@ const QS = {
 };
 
 const LV = {
-  1: { lbl:'LPA 1 — Mensuel',   col:'var(--l1)', bg:'#a78bfa18', txt:'Monthly'   },
-  2: { lbl:'LPA 2 — Hebdo',     col:'var(--l2)', bg:'#38bdf818', txt:'Weekly'    },
-  3: { lbl:'LPA 3 — Quotidien', col:'var(--l3)', bg:'#34d39918', txt:'Daily'     },
+  1: { lbl:'LPA 1 — Mensuel',   col:'var(--l1)', bg:'#a78bfa18', txt:'Monthly'  },
+  2: { lbl:'LPA 2 — Hebdo',     col:'var(--l2)', bg:'#38bdf818', txt:'Weekly'   },
+  3: { lbl:'LPA 3 — Quotidien', col:'var(--l3)', bg:'#34d39918', txt:'Daily'    },
 };
 
-/* ═══════════════════════════════════════════
-   STATE
-═══════════════════════════════════════════ */
-let USER = null, ROWS = [], ANS = {}, PHOTOS = {}, STATS = null, SA_LEVEL = 1;
+/* ── STATE ── */
+let USER = null, ROWS = [], ANS = {}, PHOTOS = {}, Q_OBS = {}, NA_ASSIGN = {}, STATS = null, SA_LEVEL = 1;
+let ASSIGNEES = [];  // users available for NA assignment (loaded on form build)
 
-/* ═══════════════════════════════════════════
-   UTILS
-═══════════════════════════════════════════ */
-const $  = id => document.getElementById(id);
-const sc = s  => s >= 84 ? 'var(--green)' : s >= 70 ? 'var(--amber)' : 'var(--red)';
-const bg = s  => s >= 84 ? '#22c55e18'    : s >= 70 ? '#f59e0b18'    : '#ef444418';
-const ch = s  => `<span class="chip" style="background:${bg(s)};color:${sc(s)}">${s}%</span>`;
-const avg = a => a.length ? Math.round(a.reduce((t,v) => t+(+v), 0) / a.length) : 0;
-const fd  = s => s ? (s+'').split('T')[0].split(' ')[0] : '—';
+/* ── UTILS ── */
+const $   = id => document.getElementById(id);
+const sc  = s  => s >= 84 ? 'var(--green)' : s >= 70 ? 'var(--amber)' : 'var(--red)';
+const bg  = s  => s >= 84 ? '#22c55e18'    : s >= 70 ? '#f59e0b18'    : '#ef444418';
+const ch  = s  => `<span class="chip" style="background:${bg(s)};color:${sc(s)}">${s}%</span>`;
+const avg = a  => a.length ? Math.round(a.reduce((t,v) => t+(+v), 0) / a.length) : 0;
+const fd  = s  => s ? (s+'').split('T')[0].split(' ')[0] : '—';
+const esc = s  => s ? s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') : '';
 
-/* ═══════════════════════════════════════════
-   LOGIN / LOGOUT
-═══════════════════════════════════════════ */
+/* ── LOGIN / LOGOUT ── */
 document.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
 
 async function doLogin() {
   $('lerr').classList.add('hide');
   try {
     const r = await fetch('/api/login', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
+      method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ username: $('lu').value.trim(), password: $('lp').value })
     });
     const d = await r.json();
@@ -563,74 +562,60 @@ async function doLogout() {
   $('lu').value = ''; $('lp').value = '';
 }
 
-/* ═══════════════════════════════════════════
-   BOOT
-═══════════════════════════════════════════ */
+/* ── BOOT ── */
 async function boot() {
   $('uname').textContent = USER.nom;
   const isSA = USER.role === 'super_admin';
 
   if (isSA) {
-    // ── Super Admin ──────────────────────────────
-    $('lvpill').textContent = '★ Super Admin';
+    $('lvpill').textContent   = '★ Super Admin';
     $('lvpill').style.cssText = 'background:#7c3aed28;color:#a78bfa;border:1px solid #7c3aed55';
-
-    // Tabs : montrer vue globale + utilisateurs, cacher audit
     $('sadminTab').classList.remove('hide');
     $('adminTab').classList.remove('hide');
     $('dashTab').classList.add('hide');
     $('formTab').classList.add('hide');
     $('histTab').classList.add('hide');
-
-    // Onglet actif : sadmin
     document.querySelectorAll('.pane').forEach(p => p.classList.remove('on'));
     document.querySelectorAll('.tab').forEach(b  => b.classList.remove('on'));
     $('pane-sadmin').classList.add('on');
     $('sadminTab').classList.add('on');
-
     await loadSuperStats();
     await loadAdminUsers();
-
   } else {
-    // ── Utilisateur normal (niveaux 1-2-3) ────────
     const m = LV[USER.niveau];
     $('lvpill').textContent   = m.lbl;
     $('lvpill').style.cssText = `background:${m.bg};color:${m.col}`;
     $('formTab').textContent  = `📝 Formulaire ${m.txt}`;
-
-    // Cacher les onglets super admin
     $('sadminTab').classList.add('hide');
     $('adminTab').classList.add('hide');
     $('dashTab').classList.remove('hide');
     $('formTab').classList.remove('hide');
     $('histTab').classList.remove('hide');
-
-    // Onglet actif : dash
     document.querySelectorAll('.pane').forEach(p => p.classList.remove('on'));
     document.querySelectorAll('.tab').forEach(b  => b.classList.remove('on'));
     $('pane-dash').classList.add('on');
     $('dashTab').classList.add('on');
-
     await loadData();
-    renderDash();
-    buildForm();
-    renderHist();
+    await loadAssignees();
+    renderDash(); buildForm(); renderHist();
   }
-
   renderProfil();
 }
 
 async function loadData() {
-  try {
-    const r = await fetch('/api/data');
-    const d = await r.json();
-    ROWS = d.rows || [];
-  } catch { ROWS = []; }
+  try { const r = await fetch('/api/data'); const d = await r.json(); ROWS = d.rows || []; }
+  catch { ROWS = []; }
 }
 
-/* ═══════════════════════════════════════════
-   TABS
-═══════════════════════════════════════════ */
+async function loadAssignees() {
+  try {
+    const r = await fetch('/api/data/assignees?niveau=' + USER.niveau);
+    const d = await r.json();
+    ASSIGNEES = d.users || [];
+  } catch { ASSIGNEES = []; }
+}
+
+/* ── TABS ── */
 function showTab(id, btn) {
   document.querySelectorAll('.pane').forEach(p => p.classList.remove('on'));
   document.querySelectorAll('.tab').forEach(b  => b.classList.remove('on'));
@@ -638,65 +623,35 @@ function showTab(id, btn) {
   btn.classList.add('on');
 }
 
-/* ═══════════════════════════════════════════
-   DASHBOARD (niveaux 1-2-3)
-═══════════════════════════════════════════ */
+/* ── DASHBOARD ── */
 function renderDash() {
-  const mine = ROWS.filter(r => r.username === USER.username);
-  const myA  = avg(mine.map(r => r.score));
+  const mine  = ROWS.filter(r => r.username === USER.username);
+  const myA   = avg(mine.map(r => r.score));
   const today = new Date().toISOString().split('T')[0];
   const todN  = ROWS.filter(r => fd(r.date_saisie) === today).length;
 
   $('statsGrid').innerHTML = `
-    <div class="stat">
-      <div class="s-lbl">Soumissions visibles</div>
-      <div class="s-val">${ROWS.length}</div>
-      <div class="s-sub">Selon votre niveau</div>
-    </div>
-    <div class="stat">
-      <div class="s-lbl">Mon score moyen</div>
-      <div class="s-val" style="color:${sc(myA)}">${myA}%</div>
-      <div class="s-sub">${mine.length} audit(s)</div>
-    </div>
-    <div class="stat">
-      <div class="s-lbl">Audits aujourd'hui</div>
-      <div class="s-val">${todN}</div>
-      <div class="s-sub">${today}</div>
-    </div>
-    <div class="stat">
-      <div class="s-lbl">Mon niveau</div>
-      <div class="s-val" style="font-size:1rem;line-height:1.4;color:${LV[USER.niveau].col}">${LV[USER.niveau].lbl}</div>
-      <div class="s-sub">${USER.role}</div>
-    </div>`;
+    <div class="stat"><div class="s-lbl">Soumissions visibles</div><div class="s-val">${ROWS.length}</div><div class="s-sub">Selon votre niveau</div></div>
+    <div class="stat"><div class="s-lbl">Mon score moyen</div><div class="s-val" style="color:${sc(myA)}">${myA}%</div><div class="s-sub">${mine.length} audit(s)</div></div>
+    <div class="stat"><div class="s-lbl">Audits aujourd'hui</div><div class="s-val">${todN}</div><div class="s-sub">${today}</div></div>
+    <div class="stat"><div class="s-lbl">Mon niveau</div><div class="s-val" style="font-size:1rem;line-height:1.4;color:${LV[USER.niveau].col}">${LV[USER.niveau].lbl}</div><div class="s-sub">${USER.role}</div></div>`;
 
-  $('recentTbl').innerHTML = ROWS.slice(0, 10).map(r => `
-    <tr>
-      <td style="font-size:12px">${fd(r.date_saisie)}</td>
-      <td><span class="chip" style="background:${LV[r.niveau]?.bg};color:${LV[r.niveau]?.col}">LPA ${r.niveau}</span></td>
-      <td>${r.nom_auditeur}</td>
-      <td style="color:var(--muted)">${r.zone || '—'}</td>
-      <td>${ch(r.score)}</td>
-    </tr>`).join('') || '<tr><td colspan="5" class="empty">Aucune donnée</td></tr>';
+  $('recentTbl').innerHTML = ROWS.slice(0,10).map(r => `<tr>
+    <td style="font-size:12px">${fd(r.date_saisie)}</td>
+    <td><span class="chip" style="background:${LV[r.niveau]?.bg};color:${LV[r.niveau]?.col}">LPA ${r.niveau}</span></td>
+    <td>${r.nom_auditeur}</td>
+    <td style="color:var(--muted)">${r.zone||'—'}</td>
+    <td>${ch(r.score)}</td></tr>`).join('') || '<tr><td colspan="5" class="empty">Aucune donnée</td></tr>';
 
-  $('refreshLbl').textContent = '⟳ ' + new Date().toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
-
-  const l1 = avg(ROWS.filter(r => +r.niveau===1).map(r => r.score));
-  const l2 = avg(ROWS.filter(r => +r.niveau===2).map(r => r.score));
-  const l3 = avg(ROWS.filter(r => +r.niveau===3).map(r => r.score));
-  $('barsBox').innerHTML = [
-    {l:'LPA 1 (Mensuel)',   c:'var(--l1)', v:l1},
-    {l:'LPA 2 (Hebdo)',     c:'var(--l2)', v:l2},
-    {l:'LPA 3 (Quotidien)', c:'var(--l3)', v:l3},
-  ].map(b => `<div class="bar-r">
-    <div class="bar-n">${b.l}</div>
-    <div class="bar-t"><div class="bar-f" style="width:${b.v}%;background:${b.c}"></div></div>
-    <div class="bar-p" style="color:${b.c}">${b.v}%</div>
-  </div>`).join('');
+  $('refreshLbl').textContent = '⟳ ' + new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+  const l1 = avg(ROWS.filter(r=>+r.niveau===1).map(r=>r.score));
+  const l2 = avg(ROWS.filter(r=>+r.niveau===2).map(r=>r.score));
+  const l3 = avg(ROWS.filter(r=>+r.niveau===3).map(r=>r.score));
+  $('barsBox').innerHTML = [{l:'LPA 1 (Mensuel)',c:'var(--l1)',v:l1},{l:'LPA 2 (Hebdo)',c:'var(--l2)',v:l2},{l:'LPA 3 (Quotidien)',c:'var(--l3)',v:l3}]
+    .map(b=>`<div class="bar-r"><div class="bar-n">${b.l}</div><div class="bar-t"><div class="bar-f" style="width:${b.v}%;background:${b.c}"></div></div><div class="bar-p" style="color:${b.c}">${b.v}%</div></div>`).join('');
 }
 
-/* ═══════════════════════════════════════════
-   SUPER ADMIN STATS
-═══════════════════════════════════════════ */
+/* ── SUPER ADMIN STATS ── */
 async function loadSuperStats() {
   try {
     const r = await fetch('/api/stats');
@@ -704,642 +659,513 @@ async function loadSuperStats() {
     if (!d.ok) throw new Error(d.err);
     STATS = d;
     renderSuperDash();
-  } catch(e) {
-    toast('❌ Erreur stats : ' + e.message, 'err');
-  }
+  } catch(e) { toast('❌ Erreur stats : ' + e.message, 'err'); }
 }
 
 async function refreshSuperDash() {
-  const btn  = $('saRefreshBtn');
-  const icon = $('saRefreshIcon');
+  const btn  = $('saRefreshBtn'), icon = $('saRefreshIcon');
   btn.disabled = true;
-  icon.style.display = 'inline-block';
   icon.style.animation = 'spin .7s linear infinite';
-  const style = document.createElement('style');
-  style.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
-  document.head.appendChild(style);
-
-  await loadSuperStats();
-  await loadAdminUsers();
-
-  btn.disabled = false;
-  icon.style.animation = '';
-  $('saRefreshTime').textContent = 'Mis à jour ' + new Date().toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
-  toast('✅ Données actualisées', 'ok');
+  const sty = document.createElement('style');
+  sty.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
+  document.head.appendChild(sty);
+  await loadSuperStats(); await loadAdminUsers();
+  btn.disabled = false; icon.style.animation = '';
+  $('saRefreshTime').textContent = 'Mis à jour ' + new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+  toast('✅ Données actualisées','ok');
 }
 
 function renderSuperDash() {
   if (!STATS) return;
-  const { levelStats, userStats, recent, questionX, total_users, week_nb } = STATS;
+  const { levelStats, userStats, recent, questionX, total_users, week_nb, emailLog } = STATS;
 
-  // ── KPIs ──────────────────────────────────────
-  const totalAudits = [1,2,3].reduce((t,lv) => t + (levelStats[lv]?.nb || 0), 0);
-  let weightedSum = 0, weightedN = 0;
-  userStats.forEach(u => { weightedSum += u.moy_score * u.nb; weightedN += u.nb; });
-  const globalAvg = weightedN ? Math.round(weightedSum / weightedN) : 0;
+  /* KPIs */
+  const totalAudits = [1,2,3].reduce((t,lv)=>t+(levelStats[lv]?.nb||0),0);
+  let ws=0,wn=0; userStats.forEach(u=>{ws+=u.moy_score*u.nb;wn+=u.nb;});
+  const globalAvg = wn?Math.round(ws/wn):0;
+  const totalEmails = emailLog?.length || 0;
 
   $('saKpis').innerHTML = `
-    <div class="stat">
-      <div class="s-lbl">Total soumissions</div>
-      <div class="s-val">${totalAudits}</div>
-      <div class="s-sub">Tous niveaux</div>
-    </div>
-    <div class="stat">
-      <div class="s-lbl">Score global moyen</div>
-      <div class="s-val" style="color:${sc(globalAvg)}">${globalAvg}%</div>
-      <div class="s-sub">Tous auditeurs</div>
-    </div>
-    <div class="stat">
-      <div class="s-lbl">Audits (7 jours)</div>
-      <div class="s-val">${week_nb}</div>
-      <div class="s-sub">Cette semaine</div>
-    </div>
-    <div class="stat">
-      <div class="s-lbl">Utilisateurs</div>
-      <div class="s-val">${total_users}</div>
-      <div class="s-sub">Comptes actifs</div>
-    </div>
-  `;
+    <div class="stat"><div class="s-lbl">Total soumissions</div><div class="s-val">${totalAudits}</div><div class="s-sub">Tous niveaux</div></div>
+    <div class="stat"><div class="s-lbl">Score global moyen</div><div class="s-val" style="color:${sc(globalAvg)}">${globalAvg}%</div><div class="s-sub">Tous auditeurs</div></div>
+    <div class="stat"><div class="s-lbl">Audits (7 jours)</div><div class="s-val">${week_nb}</div><div class="s-sub">Cette semaine</div></div>
+    <div class="stat"><div class="s-lbl">Utilisateurs</div><div class="s-val">${total_users}</div><div class="s-sub">Comptes actifs</div></div>
+    <div class="stat"><div class="s-lbl">Emails NA envoyés</div><div class="s-val" style="color:var(--amber)">${totalEmails}</div><div class="s-sub">Historique récent</div></div>`;
 
-  // ── Distribution des scores ───────────────────
-  const lvCols  = { 1:'var(--l1)', 2:'var(--l2)', 3:'var(--l3)' };
-  const lvNames = { 1:'LPA 1 — Mensuel', 2:'LPA 2 — Hebdo', 3:'LPA 3 — Quotidien' };
-
-  $('saScoreDist').innerHTML = [1,2,3].map((lv, i) => {
-    const s = levelStats[lv] || {};
-    if (!s.nb) return `
-      <div class="dist-bar-wrap">
-        <div class="dist-bar-label">
-          <span class="lv-name" style="color:${lvCols[lv]}">${lvNames[lv]}</span>
-          <span class="lv-info">Aucune donnée</span>
-        </div>
-      </div>${i < 2 ? '<hr class="dist-divider">' : ''}`;
-
-    const highPct = Math.round(s.high_count / s.nb * 100);
-    const midPct  = Math.round(s.mid_count  / s.nb * 100);
-    const lowPct  = 100 - highPct - midPct;
-
-    return `
-      <div class="dist-bar-wrap">
-        <div class="dist-bar-label">
-          <span class="lv-name" style="color:${lvCols[lv]}">${lvNames[lv]}</span>
-          <span class="lv-info">${s.nb} audit(s) · moy : <b style="color:${sc(s.score_moyen)}">${s.score_moyen}%</b></span>
-        </div>
-        <div class="dist-stacked">
-          <div class="dist-seg" style="flex:${highPct || .01};background:var(--green)" title="Élevé ≥84% : ${s.high_count}"></div>
-          <div class="dist-seg" style="flex:${midPct  || .01};background:var(--amber)" title="Moyen 70-83% : ${s.mid_count}"></div>
-          <div class="dist-seg" style="flex:${lowPct  || .01};background:var(--red)"   title="Faible <70% : ${s.low_count}"></div>
-        </div>
-        <div class="dist-legend">
-          <span style="color:var(--green)">● Élevé ${highPct}% (${s.high_count})</span>
-          <span style="color:var(--amber)">● Moyen ${midPct}% (${s.mid_count})</span>
-          <span style="color:var(--red)">● Faible ${lowPct}% (${s.low_count})</span>
-        </div>
-      </div>${i < 2 ? '<hr class="dist-divider">' : ''}`;
+  /* Score distribution */
+  const lvCols  = {1:'var(--l1)',2:'var(--l2)',3:'var(--l3)'};
+  const lvNames = {1:'LPA 1 — Mensuel',2:'LPA 2 — Hebdo',3:'LPA 3 — Quotidien'};
+  $('saScoreDist').innerHTML = [1,2,3].map((lv,i)=>{
+    const s = levelStats[lv]||{};
+    if(!s.nb) return `<div class="dist-bar-wrap"><div class="dist-bar-label"><span class="lv-name" style="color:${lvCols[lv]}">${lvNames[lv]}</span><span class="lv-info">Aucune donnée</span></div></div>${i<2?'<hr class="dist-divider">':''}`;
+    const hp=Math.round(s.high_count/s.nb*100),mp=Math.round(s.mid_count/s.nb*100),lp=100-hp-mp;
+    return `<div class="dist-bar-wrap"><div class="dist-bar-label"><span class="lv-name" style="color:${lvCols[lv]}">${lvNames[lv]}</span><span class="lv-info">${s.nb} audit(s) · moy : <b style="color:${sc(s.score_moyen)}">${s.score_moyen}%</b></span></div>
+      <div class="dist-stacked">
+        <div class="dist-seg" style="flex:${hp||.01};background:var(--green)" title="Élevé ≥84%: ${s.high_count}"></div>
+        <div class="dist-seg" style="flex:${mp||.01};background:var(--amber)" title="Moyen 70-83%: ${s.mid_count}"></div>
+        <div class="dist-seg" style="flex:${lp||.01};background:var(--red)"   title="Faible <70%: ${s.low_count}"></div>
+      </div>
+      <div class="dist-legend">
+        <span style="color:var(--green)">● Élevé ${hp}% (${s.high_count})</span>
+        <span style="color:var(--amber)">● Moyen ${mp}% (${s.mid_count})</span>
+        <span style="color:var(--red)">● Faible ${lp}% (${s.low_count})</span>
+      </div></div>${i<2?'<hr class="dist-divider">':''}`;
   }).join('');
 
-  // ── Score par auditeur ────────────────────────
-  $('saUserScores').innerHTML = `
-    <table>
-      <thead><tr><th>Auditeur</th><th>Niv.</th><th>Audits</th><th>Score moy.</th></tr></thead>
-      <tbody>
-        ${userStats.length
-          ? userStats.map(u => `<tr>
-              <td>${u.nom_auditeur}</td>
-              <td><span class="chip" style="background:${LV[u.niveau]?.bg};color:${LV[u.niveau]?.col}">LPA${u.niveau}</span></td>
-              <td style="color:var(--muted)">${u.nb}</td>
-              <td>${ch(u.moy_score)}</td>
-            </tr>`).join('')
-          : '<tr><td colspan="4" class="empty">Aucune donnée</td></tr>'}
-      </tbody>
-    </table>`;
+  /* Score par auditeur */
+  $('saUserScores').innerHTML = `<table><thead><tr><th>Auditeur</th><th>Niv.</th><th>Audits</th><th>Score moy.</th></tr></thead><tbody>
+    ${userStats.length?userStats.map(u=>`<tr>
+      <td>${u.nom_auditeur}</td>
+      <td><span class="chip" style="background:${LV[u.niveau]?.bg};color:${LV[u.niveau]?.col}">LPA${u.niveau}</span></td>
+      <td style="color:var(--muted)">${u.nb}</td>
+      <td>${ch(u.moy_score)}</td></tr>`).join(''):'<tr><td colspan="4" class="empty">Aucune donnée</td></tr>'}
+  </tbody></table>`;
 
-  // ── 50 dernières soumissions ──────────────────
+  /* Email log */
+  $('saEmailLog').innerHTML = emailLog?.length
+    ? emailLog.map(e=>`<tr>
+        <td style="font-size:11px;color:var(--muted)">${fd(e.sent_at)}</td>
+        <td><code style="font-size:11px;color:var(--cyan)">${esc(e.from_username)}</code></td>
+        <td><b>${esc(e.to_nom||e.to_username)}</b><br><code style="font-size:10px;color:var(--muted)">${esc(e.to_username)}</code></td>
+        <td style="font-size:11px;color:var(--muted)">${esc(e.to_email)}</td>
+        <td style="font-size:11px;color:var(--amber)">${esc(e.to_specialite||'—')}</td>
+        <td style="font-size:11px">Q${e.question_idx+1}</td>
+        <td>${e.has_photo?'<span class="email-tag has-photo">📷 oui</span>':'<span class="email-tag">non</span>'}</td>
+      </tr>`).join('')
+    : '<tr><td colspan="7" class="empty">Aucun email envoyé</td></tr>';
+
+  /* 50 dernières */
   $('saRecentTbl').innerHTML = recent.length
-    ? recent.map((r, idx) => `<tr style="cursor:pointer" onclick="openDetail(${idx})" title="Voir le détail">
+    ? recent.map((r,idx)=>`<tr style="cursor:pointer" onclick="openDetail(${idx})" title="Voir le détail">
         <td style="font-size:12px">${fd(r.date_saisie)}</td>
         <td><span class="chip" style="background:${LV[r.niveau]?.bg};color:${LV[r.niveau]?.col}">LPA ${r.niveau}</span></td>
         <td>${r.nom_auditeur}</td>
-        <td style="color:var(--muted)">${r.zone || '—'}</td>
+        <td style="color:var(--muted)">${r.zone||'—'}</td>
         <td style="color:var(--green)">${r.conformes}</td>
         <td style="color:var(--red)">${r.non_conformes}</td>
-        <td>${ch(r.score)}</td>
-      </tr>`).join('')
+        <td>${ch(r.score)}</td></tr>`).join('')
     : '<tr><td colspan="7" class="empty">Aucune soumission</td></tr>';
 
-  // ── Questions non-conformes ───────────────────
   renderSaQuestions();
-  $('saRefreshTime').textContent = 'Mis à jour ' + new Date().toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
+  $('saRefreshTime').textContent = 'Mis à jour ' + new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
 }
 
-function showSaLevel(lv, btn) {
-  SA_LEVEL = lv;
-  document.querySelectorAll('.tab-sa').forEach(b => b.classList.remove('on'));
+function showSaLevel(lv,btn){
+  SA_LEVEL=lv;
+  document.querySelectorAll('.tab-sa').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
   renderSaQuestions();
 }
 
-function renderSaQuestions() {
-  if (!STATS) return;
-  const qData = STATS.questionX[SA_LEVEL] || {};
-  const qs    = QS[SA_LEVEL] || [];
-
-  const sorted = Object.entries(qData)
-    .map(([idx, count]) => ({ idx: parseInt(idx), count, q: qs[parseInt(idx)] || `Question ${parseInt(idx)+1}` }))
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 10);
-
-  if (!sorted.length) {
-    $('saQuestionsBox').innerHTML = '<div class="empty">Aucune non-conformité enregistrée pour ce niveau</div>';
-    return;
-  }
-
-  const maxCount = sorted[0].count;
-  $('saQuestionsBox').innerHTML = sorted.map(item => `
-    <div class="sa-q-row">
-      <div class="sa-q-num">Q${item.idx + 1}</div>
-      <div class="sa-q-txt">${item.q}</div>
-      <div class="sa-q-bar">
-        <div class="bar-t"><div class="bar-f" style="width:${Math.round(item.count/maxCount*100)}%;background:var(--red)"></div></div>
-        <div class="sa-q-count">${item.count}✗</div>
-      </div>
-    </div>`).join('');
+function renderSaQuestions(){
+  if(!STATS) return;
+  const qData=STATS.questionX[SA_LEVEL]||{}, qs=QS[SA_LEVEL]||[];
+  const sorted=Object.entries(qData).map(([idx,count])=>({idx:parseInt(idx),count,q:qs[parseInt(idx)]||`Question ${parseInt(idx)+1}`})).sort((a,b)=>b.count-a.count).slice(0,10);
+  if(!sorted.length){$('saQuestionsBox').innerHTML='<div class="empty">Aucune non-conformité</div>';return;}
+  const mx=sorted[0].count;
+  $('saQuestionsBox').innerHTML=sorted.map(item=>`<div class="sa-q-row">
+    <div class="sa-q-num">Q${item.idx+1}</div>
+    <div class="sa-q-txt">${item.q}</div>
+    <div class="sa-q-bar"><div class="bar-t"><div class="bar-f" style="width:${Math.round(item.count/mx*100)}%;background:var(--red)"></div></div>
+    <div class="sa-q-count">${item.count}✗</div></div></div>`).join('');
 }
 
-/* ═══════════════════════════════════════════
-   FORMULAIRE
-═══════════════════════════════════════════ */
+/* ── FORMULAIRE ── */
 function buildForm() {
-  ANS = {};
-  PHOTOS = {};
-  const lv = USER.niveau, qs = QS[lv], m = LV[lv];
-  const today = new Date().toISOString().split('T')[0];
+  ANS={}; PHOTOS={}; Q_OBS={}; NA_ASSIGN={};
+  const lv=USER.niveau, qs=QS[lv], m=LV[lv];
+  const today=new Date().toISOString().split('T')[0];
 
-  let h = `
-  <div class="fs">
+  // Build assignee options
+  const assigneeOptions = ASSIGNEES.map(u =>
+    `<option value="${esc(u.username)}">${esc(u.nom)} (${esc(u.role||'—')}, ${esc(u.zone||'—')})</option>`
+  ).join('');
+
+  let h = `<div class="fs">
     <div class="fh"><span>📋</span><h3>Informations générales — ${m.lbl}</h3></div>
-    <div class="fb">
-      <div class="mg">
-        <div class="ff"><label>Date audit</label><input type="date" id="fDate" value="${today}"></div>
-        <div class="ff"><label>Zone</label><input type="text" id="fZone" value="${USER.zone}"></div>
-        ${lv===3 ? `<div class="ff"><label>Shift</label>
-          <select id="fShift"><option>Shift Bleu</option><option>Shift Gris</option><option>Shift Vert</option></select>
-        </div>` : ''}
-        ${lv===2 ? `<div class="ff"><label>Semaine</label><input id="fWeek" placeholder="ex: S11-2026"></div>` : ''}
-        ${lv===1 ? `<div class="ff"><label>Mois</label><input id="fMonth" placeholder="ex: Mars 2026"></div>` : ''}
-        <div class="ff"><label>Auditeur</label><input value="${USER.nom}" readonly></div>
-      </div>
-    </div>
-  </div>
+    <div class="fb"><div class="mg">
+      <div class="ff"><label>Date audit</label><input type="date" id="fDate" value="${today}"></div>
+      <div class="ff"><label>Zone</label><input type="text" id="fZone" value="${esc(USER.zone)}"></div>
+      ${lv===3?`<div class="ff"><label>Shift</label><select id="fShift"><option>Shift Bleu</option><option>Shift Gris</option><option>Shift Vert</option></select></div>`:''}
+      ${lv===2?`<div class="ff"><label>Semaine</label><input id="fWeek" placeholder="ex: S11-2026"></div>`:''}
+      ${lv===1?`<div class="ff"><label>Mois</label><input id="fMonth" placeholder="ex: Mars 2026"></div>`:''}
+      <div class="ff"><label>Auditeur</label><input value="${esc(USER.nom)}" readonly></div>
+    </div></div></div>
 
   <div class="fs">
-    <div class="fh">
-      <span>✅</span>
-      <h3>Points d'audit — ${qs.length} questions</h3>
-      <span class="nt">O = Conforme &nbsp;·&nbsp; X = Non-conforme &nbsp;·&nbsp; NA = Non applicable</span>
-    </div>
+    <div class="fh"><span>✅</span><h3>Points d'audit — ${qs.length} questions</h3>
+      <span class="nt">O = Conforme &nbsp;·&nbsp; X = Non-conforme &nbsp;·&nbsp; NA = Non applicable</span></div>
     <div class="fb" style="padding-top:.2rem;padding-bottom:.2rem">`;
 
-  qs.forEach((q, i) => {
-    ANS[i] = null;
-    h += `<div class="qr">
-      <span class="qn">${i+1}</span>
-      <span class="qt">${q}</span>
-      <div class="qo">
-        <button class="opt" id="q${i}O"  onclick="pick(${i},'O')">O</button>
-        <button class="opt" id="q${i}X"  onclick="pick(${i},'X')">X</button>
-        <button class="opt" id="q${i}NA" onclick="pick(${i},'NA')">NA</button>
-        <button class="btn-photo" id="q${i}photo" onclick="triggerPhoto(${i})" title="Ajouter une photo">📷</button>
-        <img class="photo-preview" id="q${i}prev" onclick="removePhoto(${i})" title="Cliquer pour supprimer">
-        <input type="file" id="q${i}file" accept="image/*" capture="environment" style="display:none" onchange="onPhotoSelected(${i}, this)">
+  qs.forEach((q,i)=>{
+    ANS[i]=null;
+    h+=`<div class="qr" id="qrow${i}">
+      <div class="qr-top">
+        <span class="qn">${i+1}</span>
+        <span class="qt">${q}</span>
+        <div class="qo">
+          <button class="opt" id="q${i}O"  onclick="pick(${i},'O')">O</button>
+          <button class="opt" id="q${i}X"  onclick="pick(${i},'X')">X</button>
+          <button class="opt" id="q${i}NA" onclick="pick(${i},'NA')">NA</button>
+          <button class="btn-photo" id="q${i}photo" onclick="triggerPhoto(${i})" title="Ajouter une photo">📷</button>
+          <img class="photo-preview" id="q${i}prev" onclick="removePhoto(${i})" title="Cliquer pour supprimer">
+          <input type="file" id="q${i}file" accept="image/*" capture="environment" style="display:none" onchange="onPhotoSelected(${i},this)">
+        </div>
+      </div>
+      <div class="qr-na-extras" id="qna${i}">
+        <div class="na-obs-field ff">
+          <label>Observation (NA)</label>
+          <textarea id="qobs${i}" placeholder="Décrire pourquoi NA…" oninput="Q_OBS[${i}]=this.value.trim()"></textarea>
+        </div>
+        <div class="na-assign-field ff">
+          <label>Assigner à</label>
+          <select id="qassign${i}" onchange="NA_ASSIGN[${i}]=this.value">
+            <option value="">— Aucun —</option>
+            ${assigneeOptions}
+          </select>
+        </div>
       </div>
     </div>`;
   });
 
-  h += `</div>
+  h+=`</div>
     <div class="foot">
       <div class="lsc">Score : <b id="liveScore" style="color:var(--muted)">—</b></div>
       <button class="btn-r" onclick="buildForm()">Réinitialiser</button>
       <button class="btn-s" id="subBtn" onclick="submitForm()">Enregistrer →</button>
-    </div>
-  </div>
+    </div></div>
 
   <div class="fs">
-    <div class="fh"><span>📝</span><h3>Anomalies & Observations</h3></div>
-    <div class="fb">
-      <div class="ff2">
-        <div class="ff"><label>Non-conformités & plan de réaction</label>
-          <textarea id="fObs" placeholder="Décrire les NC et actions correctives…"></textarea></div>
-        <div class="ff"><label>Commentaires additionnels</label>
-          <textarea id="fCmt" placeholder="Observations…"></textarea></div>
-      </div>
-    </div>
-  </div>`;
+    <div class="fh"><span>📝</span><h3>Anomalies & Observations générales</h3></div>
+    <div class="fb"><div class="ff2">
+      <div class="ff"><label>Non-conformités & plan de réaction</label>
+        <textarea id="fObs" placeholder="Décrire les NC et actions correctives…"></textarea></div>
+      <div class="ff"><label>Commentaires additionnels</label>
+        <textarea id="fCmt" placeholder="Observations…"></textarea></div>
+    </div></div></div>`;
 
   $('pane-form').innerHTML = h;
 }
 
-function pick(i, v) {
-  ANS[i] = v;
-  ['O','X','NA'].forEach(x => {
-    const b = $(`q${i}${x}`);
-    b.className = 'opt' + (x === v ? ' ' + v : '');
-  });
-  const btnPhoto = $(`q${i}photo`);
-  if (btnPhoto) {
-    btnPhoto.classList.toggle('visible', v === 'NA');
-    if (v !== 'NA') removePhoto(i);
+function pick(i,v){
+  ANS[i]=v;
+  ['O','X','NA'].forEach(x=>{ $(`q${i}${x}`).className='opt'+(x===v?' '+v:''); });
+  const btnPhoto=$(`q${i}photo`);
+  if(btnPhoto){ btnPhoto.classList.toggle('visible',v==='NA'); if(v!=='NA') removePhoto(i); }
+
+  // Show/hide NA extras panel
+  const naPanel = $(`qna${i}`);
+  if(naPanel) {
+    if(v==='NA') naPanel.classList.add('visible');
+    else {
+      naPanel.classList.remove('visible');
+      // Clear data if not NA
+      delete Q_OBS[i]; delete NA_ASSIGN[i];
+      const ta=$(`qobs${i}`); if(ta) ta.value='';
+      const sl=$(`qassign${i}`); if(sl) sl.value='';
+    }
   }
-  const O = Object.values(ANS).filter(x => x==='O').length;
-  const X = Object.values(ANS).filter(x => x==='X').length;
-  if (O + X > 0) {
-    const s = Math.round(O / (O+X) * 100);
-    const el = $('liveScore');
-    el.textContent = s + '%';
-    el.style.color = sc(s);
-  }
+
+  const O=Object.values(ANS).filter(x=>x==='O').length;
+  const X=Object.values(ANS).filter(x=>x==='X').length;
+  if(O+X>0){ const s=Math.round(O/(O+X)*100); const el=$('liveScore'); el.textContent=s+'%'; el.style.color=sc(s); }
 }
 
-async function submitForm() {
-  const lv = USER.niveau;
-  const O  = Object.values(ANS).filter(v => v==='O').length;
-  const X  = Object.values(ANS).filter(v => v==='X').length;
-  const score = (O+X) > 0 ? Math.round(O/(O+X)*100) : 0;
+async function submitForm(){
+  const lv=USER.niveau;
+  const O=Object.values(ANS).filter(v=>v==='O').length;
+  const X=Object.values(ANS).filter(v=>v==='X').length;
+  const score=(O+X)>0?Math.round(O/(O+X)*100):0;
 
-  const payload = {
-    date_audit:    $('fDate').value,
-    niveau:        lv,
-    zone:          $('fZone').value,
-    shift:         lv===3 ? ($('fShift')?.value || '') : '',
-    semaine:       lv===2 ? ($('fWeek')?.value  || '') : '',
-    mois:          lv===1 ? ($('fMonth')?.value || '') : '',
-    reponses:      {...ANS},
-    observations:  $('fObs').value,
-    photos:        Object.keys(PHOTOS).length ? {...PHOTOS} : undefined,
-    conformes:     O,
-    non_conformes: X,
-    score:         score,
+  // Clean: only keep Q_OBS and NA_ASSIGN where answer is actually NA
+  const cleanObs={}, cleanAssign={};
+  Object.entries(ANS).forEach(([k,v])=>{
+    if(v==='NA'){
+      if(Q_OBS[k])   cleanObs[k]    = Q_OBS[k];
+      if(NA_ASSIGN[k]) cleanAssign[k] = NA_ASSIGN[k];
+    }
+  });
+
+  const payload={
+    date_audit:      $('fDate').value,
+    niveau:          lv,
+    zone:            $('fZone').value,
+    shift:           lv===3?($('fShift')?.value||''):'',
+    semaine:         lv===2?($('fWeek')?.value||''):'',
+    mois:            lv===1?($('fMonth')?.value||''):'',
+    reponses:        {...ANS},
+    observations:    $('fObs').value,
+    photos:          Object.keys(PHOTOS).length?{...PHOTOS}:undefined,
+    q_observations:  Object.keys(cleanObs).length?cleanObs:undefined,
+    na_assignees:    Object.keys(cleanAssign).length?cleanAssign:undefined,
+    conformes:       O,
+    non_conformes:   X,
+    score,
   };
 
-  const btn = $('subBtn');
-  btn.disabled = true; btn.textContent = 'Enregistrement…';
-
+  const btn=$('subBtn');
+  btn.disabled=true; btn.textContent='Enregistrement…';
   try {
-    const r = await fetch('/api/save', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(payload)
-    });
-    const d = await r.json();
-    if (!d.ok) throw new Error(d.err || 'Erreur serveur');
+    const r=await fetch('/api/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const d=await r.json();
+    if(!d.ok) throw new Error(d.err||'Erreur serveur');
+    const emailsSent=(d.emails||[]).filter(e=>e.ok).length;
+    const emailMsg = emailsSent>0 ? ` · ${emailsSent} email(s) envoyé(s)` : '';
     await loadData();
-    toast(`✅ Enregistré — Score : ${score}%`, 'ok');
+    toast(`✅ Enregistré — Score : ${score}%${emailMsg}`,'ok');
     renderDash(); renderHist(); buildForm();
-  } catch(e) {
-    toast('❌ ' + e.message, 'err');
-  }
-
-  btn.disabled = false; btn.textContent = 'Enregistrer →';
+  } catch(e){ toast('❌ '+e.message,'err'); }
+  btn.disabled=false; btn.textContent='Enregistrer →';
 }
 
-/* ═══════════════════════════════════════════
-   HISTORIQUE
-═══════════════════════════════════════════ */
-function renderHist() {
-  const lv = USER.niveau;
-  if (lv === 1) $('histTitle').textContent = 'Toutes les soumissions';
-  else if (lv === 2) $('histTitle').textContent = 'Soumissions LPA 2 & 3';
-  else $('histTitle').textContent = 'Mes soumissions';
-
-  $('histTbl').innerHTML = ROWS.length
-    ? ROWS.map(r => `<tr>
-        <td style="font-size:12px">${fd(r.date_saisie)}</td>
-        <td><span class="chip" style="background:${LV[r.niveau]?.bg};color:${LV[r.niveau]?.col}">LPA ${r.niveau}</span></td>
-        <td>${r.nom_auditeur}</td>
-        <td style="color:var(--muted)">${r.zone || '—'}</td>
-        <td style="color:var(--green)">${r.conformes}</td>
-        <td style="color:var(--red)">${r.non_conformes}</td>
-        <td>${ch(r.score)}</td>
-        <td style="color:var(--muted);max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${r.observations || '—'}</td>
-      </tr>`).join('')
-    : '<tr><td colspan="8" class="empty">Aucune soumission.</td></tr>';
+/* ── HISTORIQUE ── */
+function renderHist(){
+  const lv=USER.niveau;
+  if(lv===1) $('histTitle').textContent='Toutes les soumissions';
+  else if(lv===2) $('histTitle').textContent='Soumissions LPA 2 & 3';
+  else $('histTitle').textContent='Mes soumissions';
+  $('histTbl').innerHTML=ROWS.length
+    ?ROWS.map(r=>`<tr>
+      <td style="font-size:12px">${fd(r.date_saisie)}</td>
+      <td><span class="chip" style="background:${LV[r.niveau]?.bg};color:${LV[r.niveau]?.col}">LPA ${r.niveau}</span></td>
+      <td>${r.nom_auditeur}</td>
+      <td style="color:var(--muted)">${r.zone||'—'}</td>
+      <td style="color:var(--green)">${r.conformes}</td>
+      <td style="color:var(--red)">${r.non_conformes}</td>
+      <td>${ch(r.score)}</td>
+      <td style="color:var(--muted);max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${r.observations||'—'}</td>
+    </tr>`).join('')
+    :'<tr><td colspan="8" class="empty">Aucune soumission.</td></tr>';
 }
 
-/* ═══════════════════════════════════════════
-   PROFIL
-═══════════════════════════════════════════ */
-function renderProfil() {
-  const isSA = USER.role === 'super_admin';
+/* ── PROFIL ── */
+function renderProfil(){
+  const isSA=USER.role==='super_admin';
   $('pUsername').textContent = USER.username;
-  $('pNiveau').textContent   = isSA ? 'Super Admin' : `Niveau ${USER.niveau} — ${LV[USER.niveau]?.lbl || '—'}`;
-  $('pRole').textContent     = USER.role || '—';
-  $('pZone').textContent     = USER.zone || '—';
-  $('pNomActuel').value      = USER.nom;
-  $('pNomNew').value         = '';
-  $('pOldPwd').value = $('pNewPwd').value = $('pConfPwd').value = '';
+  $('pNiveau').textContent   = isSA?'Super Admin':`Niveau ${USER.niveau} — ${LV[USER.niveau]?.lbl||'—'}`;
+  $('pRole').textContent     = USER.role||'—';
+  $('pZone').textContent     = USER.zone||'—';
+  $('pEmail').textContent    = USER.email||'—';
+  $('pSpecialite').textContent = USER.specialite||'—';
+  $('pNomActuel').value = USER.nom;
+  $('pNomNew').value='';
+  $('pOldPwd').value=$('pNewPwd').value=$('pConfPwd').value='';
 }
 
-async function saveNom() {
-  const nom = $('pNomNew').value.trim();
-  if (!nom) { toast('Entrez un nom', 'err'); return; }
-  try {
-    const r = await fetch('/api/profile', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ action: 'rename', nom })
-    });
-    const d = await r.json();
-    if (!d.ok) throw new Error(d.err);
-    USER.nom = d.nom;
-    $('uname').textContent  = USER.nom;
-    $('pNomActuel').value   = USER.nom;
-    $('pNomNew').value      = '';
-    if (USER.role !== 'super_admin') buildForm();
-    toast('✅ Nom mis à jour', 'ok');
-  } catch(e) { toast('❌ ' + e.message, 'err'); }
+async function saveNom(){
+  const nom=$('pNomNew').value.trim();
+  if(!nom){toast('Entrez un nom','err');return;}
+  try{
+    const r=await fetch('/api/profile',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'rename',nom})});
+    const d=await r.json();
+    if(!d.ok) throw new Error(d.err);
+    USER.nom=d.nom; $('uname').textContent=USER.nom; $('pNomActuel').value=USER.nom; $('pNomNew').value='';
+    if(USER.role!=='super_admin') buildForm();
+    toast('✅ Nom mis à jour','ok');
+  }catch(e){toast('❌ '+e.message,'err');}
 }
 
-async function savePasswd() {
-  const old  = $('pOldPwd').value;
-  const nw   = $('pNewPwd').value;
-  const conf = $('pConfPwd').value;
-  if (nw !== conf) { toast('Les mots de passe ne correspondent pas', 'err'); return; }
-  if (nw.length < 6) { toast('Minimum 6 caractères', 'err'); return; }
-  try {
-    const r = await fetch('/api/profile', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ action: 'passwd', old, new: nw })
-    });
-    const d = await r.json();
-    if (!d.ok) throw new Error(d.err);
-    $('pOldPwd').value = $('pNewPwd').value = $('pConfPwd').value = '';
-    toast('✅ Mot de passe changé', 'ok');
-  } catch(e) { toast('❌ ' + e.message, 'err'); }
+async function savePasswd(){
+  const old=$('pOldPwd').value,nw=$('pNewPwd').value,conf=$('pConfPwd').value;
+  if(nw!==conf){toast('Les mots de passe ne correspondent pas','err');return;}
+  if(nw.length<6){toast('Minimum 6 caractères','err');return;}
+  try{
+    const r=await fetch('/api/profile',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'passwd',old,new:nw})});
+    const d=await r.json();
+    if(!d.ok) throw new Error(d.err);
+    $('pOldPwd').value=$('pNewPwd').value=$('pConfPwd').value='';
+    toast('✅ Mot de passe changé','ok');
+  }catch(e){toast('❌ '+e.message,'err');}
 }
 
-/* ═══════════════════════════════════════════
-   ADMIN UTILISATEURS (super_admin)
-═══════════════════════════════════════════ */
-let ADMIN_USERS = [];
+/* ── ADMIN UTILISATEURS ── */
+let ADMIN_USERS=[];
 
-async function loadAdminUsers() {
-  try {
-    const r = await fetch('/api/admin?action=list');
-    const d = await r.json();
-    ADMIN_USERS = d.users || [];
+async function loadAdminUsers(){
+  try{
+    const r=await fetch('/api/admin?action=list');
+    const d=await r.json();
+    ADMIN_USERS=d.users||[];
     renderAdminTable();
-  } catch(e) { toast('❌ Erreur chargement utilisateurs', 'err'); }
+  }catch(e){toast('❌ Erreur chargement utilisateurs','err');}
 }
 
-function renderAdminTable() {
-  const lvNames  = { 1: 'LPA 1', 2: 'LPA 2', 3: 'LPA 3' };
-  const lvColors = { 1: 'var(--l1)', 2: 'var(--l2)', 3: 'var(--l3)' };
-  const lvBgs    = { 1: '#a78bfa18', 2: '#38bdf818', 3: '#34d39918' };
-
-  $('adminTbl').innerHTML = ADMIN_USERS.length
-    ? ADMIN_USERS.map(u => {
-        const isSA = u.role === 'super_admin';
-        const badge = isSA
-          ? `<span class="chip" style="background:#7c3aed28;color:#a78bfa">Super Admin</span>`
-          : `<span class="chip" style="background:${lvBgs[u.niveau]};color:${lvColors[u.niveau]}">${lvNames[u.niveau] || '—'}</span>`;
+function renderAdminTable(){
+  const lvNames={1:'LPA 1',2:'LPA 2',3:'LPA 3'};
+  const lvColors={1:'var(--l1)',2:'var(--l2)',3:'var(--l3)'};
+  const lvBgs={1:'#a78bfa18',2:'#38bdf818',3:'#34d39918'};
+  $('adminTbl').innerHTML=ADMIN_USERS.length
+    ?ADMIN_USERS.map(u=>{
+        const isSA=u.role==='super_admin';
+        const badge=isSA?`<span class="chip" style="background:#7c3aed28;color:#a78bfa">Super Admin</span>`
+          :`<span class="chip" style="background:${lvBgs[u.niveau]};color:${lvColors[u.niveau]}">${lvNames[u.niveau]||'—'}</span>`;
         return `<tr>
-          <td><code style="font-size:12px;color:var(--cyan)">${u.username}</code></td>
-          <td>${u.nom}</td>
+          <td><code style="font-size:12px;color:var(--cyan)">${esc(u.username)}</code></td>
+          <td>${esc(u.nom)}</td>
           <td>${badge}</td>
-          <td style="color:var(--muted)">${u.role || '—'}</td>
-          <td style="color:var(--muted)">${u.zone || '—'}</td>
+          <td style="color:var(--muted)">${esc(u.role||'—')}</td>
+          <td style="color:var(--muted)">${esc(u.zone||'—')}</td>
+          <td style="color:var(--cyan);font-size:12px">${esc(u.email||'—')}</td>
+          <td style="color:var(--amber);font-size:12px">${esc(u.specialite||'—')}</td>
           <td style="display:flex;gap:.4rem">
             <button class="btn-edit-sm" onclick="openModalEdit(${u.id})">✏️ Modifier</button>
-            <button class="btn-del-sm"  onclick="deleteUser(${u.id},'${u.username}')">🗑️ Supprimer</button>
-          </td>
-        </tr>`;
+            <button class="btn-del-sm"  onclick="deleteUser(${u.id},'${esc(u.username)}')">🗑️ Supprimer</button>
+          </td></tr>`;
       }).join('')
-    : '<tr><td colspan="6" class="empty">Aucun utilisateur</td></tr>';
+    :'<tr><td colspan="8" class="empty">Aucun utilisateur</td></tr>';
 }
 
-function openModalAdd() {
-  $('modalTitle').textContent = 'Ajouter un utilisateur';
-  $('mId').value = '';
-  $('mUsername').value = '';
-  $('mUsername').readOnly = false;
-  $('mNom').value = '';
-  $('mPwd').value = '';
-  $('mPwdHint').style.display = 'none';
-  $('mNiveau').value = '3';
-  $('mRole').value = '';
-  $('mZone').value = '';
+function openModalAdd(){
+  $('modalTitle').textContent='Ajouter un utilisateur';
+  $('mId').value=''; $('mUsername').value=''; $('mUsername').readOnly=false;
+  $('mNom').value=''; $('mPwd').value=''; $('mPwdHint').style.display='none';
+  $('mNiveau').value='3'; $('mRole').value=''; $('mZone').value='';
+  $('mEmail').value=''; $('mSpecialite').value='';
   $('modalBg').classList.remove('hide');
 }
 
-function openModalEdit(id) {
-  const u = ADMIN_USERS.find(x => x.id == id);
-  if (!u) return;
-  $('modalTitle').textContent = 'Modifier l\'utilisateur';
-  $('mId').value = u.id;
-  $('mUsername').value = u.username;
-  $('mUsername').readOnly = true;
-  $('mNom').value = u.nom;
-  $('mPwd').value = '';
-  $('mPwdHint').style.display = 'inline';
-  $('mNiveau').value = u.niveau || '3';
-  $('mRole').value = u.role || '';
-  $('mZone').value = u.zone || '';
+function openModalEdit(id){
+  const u=ADMIN_USERS.find(x=>x.id==id); if(!u) return;
+  $('modalTitle').textContent="Modifier l'utilisateur";
+  $('mId').value=u.id; $('mUsername').value=u.username; $('mUsername').readOnly=true;
+  $('mNom').value=u.nom; $('mPwd').value=''; $('mPwdHint').style.display='inline';
+  $('mNiveau').value=u.niveau||'3'; $('mRole').value=u.role||''; $('mZone').value=u.zone||'';
+  $('mEmail').value=u.email||''; $('mSpecialite').value=u.specialite||'';
   $('modalBg').classList.remove('hide');
 }
 
-function closeModal() {
-  $('modalBg').classList.add('hide');
-}
+function closeModal(){ $('modalBg').classList.add('hide'); }
 
-async function saveModal() {
-  const id = $('mId').value;
-  const isEdit = !!id;
-
-  const body = {
-    action:   isEdit ? 'edit' : 'add',
-    id:       id ? +id : undefined,
-    username: $('mUsername').value.trim(),
-    nom:      $('mNom').value.trim(),
-    password: $('mPwd').value,
-    niveau:   +$('mNiveau').value,
-    role:     $('mRole').value.trim(),
-    zone:     $('mZone').value.trim(),
+async function saveModal(){
+  const id=$('mId').value, isEdit=!!id;
+  const body={
+    action:isEdit?'edit':'add', id:id?+id:undefined,
+    username:$('mUsername').value.trim(), nom:$('mNom').value.trim(),
+    password:$('mPwd').value, niveau:+$('mNiveau').value,
+    role:$('mRole').value.trim(), zone:$('mZone').value.trim(),
+    email:$('mEmail').value.trim(), specialite:$('mSpecialite').value.trim(),
   };
-
-  try {
-    const r = await fetch('/api/admin', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(body)
-    });
-    const d = await r.json();
-    if (!d.ok) throw new Error(d.err);
-    closeModal();
-    await loadAdminUsers();
-    toast(`✅ Utilisateur ${isEdit ? 'modifié' : 'ajouté'}`, 'ok');
-  } catch(e) { toast('❌ ' + e.message, 'err'); }
+  try{
+    const r=await fetch('/api/admin',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const d=await r.json();
+    if(!d.ok) throw new Error(d.err);
+    closeModal(); await loadAdminUsers();
+    toast(`✅ Utilisateur ${isEdit?'modifié':'ajouté'}`,'ok');
+  }catch(e){toast('❌ '+e.message,'err');}
 }
 
-async function deleteUser(id, username) {
-  if (!confirm(`Supprimer l'utilisateur "${username}" ?\nSes soumissions seront conservées.`)) return;
-  try {
-    const r = await fetch('/api/admin', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ action: 'delete', id })
-    });
-    const d = await r.json();
-    if (!d.ok) throw new Error(d.err);
-    await loadAdminUsers();
-    toast('✅ Utilisateur supprimé', 'ok');
-  } catch(e) { toast('❌ ' + e.message, 'err'); }
+async function deleteUser(id,username){
+  if(!confirm(`Supprimer l'utilisateur "${username}" ?\nSes soumissions seront conservées.`)) return;
+  try{
+    const r=await fetch('/api/admin',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',id})});
+    const d=await r.json();
+    if(!d.ok) throw new Error(d.err);
+    await loadAdminUsers(); toast('✅ Utilisateur supprimé','ok');
+  }catch(e){toast('❌ '+e.message,'err');}
 }
 
-$('modalBg').addEventListener('click', e => {
-  if (e.target === $('modalBg')) closeModal();
-});
+$('modalBg').addEventListener('click',e=>{ if(e.target===$('modalBg')) closeModal(); });
 
-/* ═══════════════════════════════════════════
-   PHOTOS (NA)
-═══════════════════════════════════════════ */
-function triggerPhoto(i) {
-  $(`q${i}file`).click();
-}
+/* ── PHOTOS ── */
+function triggerPhoto(i){ $(`q${i}file`).click(); }
 
-function onPhotoSelected(i, input) {
-  const file = input.files[0];
-  if (!file) return;
-  if (file.size > 5 * 1024 * 1024) { toast('❌ Photo trop lourde (max 5 Mo)', 'err'); return; }
-  const reader = new FileReader();
-  reader.onload = e => {
-    PHOTOS[i] = e.target.result;
-    const prev = $(`q${i}prev`);
-    prev.src = e.target.result;
-    prev.classList.add('visible');
-    const btn = $(`q${i}photo`);
-    btn.classList.add('has-photo');
-    btn.textContent = '📷✓';
+function onPhotoSelected(i,input){
+  const file=input.files[0]; if(!file) return;
+  if(file.size>5*1024*1024){toast('❌ Photo trop lourde (max 5 Mo)','err');return;}
+  const reader=new FileReader();
+  reader.onload=e=>{
+    PHOTOS[i]=e.target.result;
+    const prev=$(`q${i}prev`); prev.src=e.target.result; prev.classList.add('visible');
+    const btn=$(`q${i}photo`); btn.classList.add('has-photo'); btn.textContent='📷✓';
   };
   reader.readAsDataURL(file);
 }
 
-function removePhoto(i) {
+function removePhoto(i){
   delete PHOTOS[i];
-  const prev = $(`q${i}prev`);
-  if (prev) { prev.src = ''; prev.classList.remove('visible'); }
-  const btn = $(`q${i}photo`);
-  if (btn) { btn.classList.remove('has-photo'); btn.textContent = '📷'; }
-  const inp = $(`q${i}file`);
-  if (inp) inp.value = '';
+  const prev=$(`q${i}prev`); if(prev){prev.src='';prev.classList.remove('visible');}
+  const btn=$(`q${i}photo`); if(btn){btn.classList.remove('has-photo');btn.textContent='📷';}
+  const inp=$(`q${i}file`); if(inp) inp.value='';
 }
 
-/* ═══════════════════════════════════════════
-   DÉTAIL SOUMISSION (super admin)
-═══════════════════════════════════════════ */
-function openDetail(idx) {
-  if (!STATS?.recent) return;
-  const r = STATS.recent[idx];
-  if (!r) return;
+/* ── DÉTAIL SOUMISSION ── */
+function openDetail(idx){
+  if(!STATS?.recent) return;
+  const r=STATS.recent[idx]; if(!r) return;
+  const lv=r.niveau, qs=QS[lv]||[], lvCol=LV[lv]?.col||'var(--cyan)', lvBg=LV[lv]?.bg||'#0ea5e918';
 
-  const lv   = r.niveau;
-  const qs   = QS[lv] || [];
-  const lvCol = LV[lv]?.col || 'var(--cyan)';
-  const lvBg  = LV[lv]?.bg  || '#0ea5e918';
+  $('dmTitle').innerHTML=`Soumission #${r.id} &nbsp;<span class="chip" style="background:${lvBg};color:${lvCol}">LPA ${lv}</span>`;
 
-  // ── En-tête ──────────────────────────────────
-  $('dmTitle').innerHTML = `
-    Soumission #${r.id} &nbsp;
-    <span class="chip" style="background:${lvBg};color:${lvCol}">LPA ${lv}</span>`;
-
-  // ── Méta-données ─────────────────────────────
-  const periodLabel = lv === 1 ? 'Mois' : lv === 2 ? 'Semaine' : 'Shift';
-  const periodVal   = lv === 1 ? (r.mois || '—') : lv === 2 ? (r.semaine || '—') : (r.shift || '—');
-
-  const meta = [
-    { label: 'Auditeur',    value: r.nom_auditeur },
-    { label: 'Identifiant', value: `<code style="color:var(--cyan);font-size:12px">${r.username}</code>` },
-    { label: 'Date audit',  value: fd(r.date_audit) },
-    { label: 'Date saisie', value: fd(r.date_saisie) },
-    { label: 'Zone',        value: r.zone || '—' },
-    { label: periodLabel,   value: periodVal },
-    { label: 'Conformes',   value: `<span style="color:var(--green);font-weight:700">${r.conformes}</span>` },
-    { label: 'Non-conf.',   value: `<span style="color:var(--red);font-weight:700">${r.non_conformes}</span>` },
-    { label: 'Score',       value: ch(r.score) },
+  const periodLabel=lv===1?'Mois':lv===2?'Semaine':'Shift';
+  const periodVal  =lv===1?(r.mois||'—'):lv===2?(r.semaine||'—'):(r.shift||'—');
+  const meta=[
+    {label:'Auditeur',    value:r.nom_auditeur},
+    {label:'Identifiant', value:`<code style="color:var(--cyan);font-size:12px">${esc(r.username)}</code>`},
+    {label:'Date audit',  value:fd(r.date_audit)},
+    {label:'Date saisie', value:fd(r.date_saisie)},
+    {label:'Zone',        value:r.zone||'—'},
+    {label:periodLabel,   value:periodVal},
+    {label:'Conformes',   value:`<span style="color:var(--green);font-weight:700">${r.conformes}</span>`},
+    {label:'Non-conf.',   value:`<span style="color:var(--red);font-weight:700">${r.non_conformes}</span>`},
+    {label:'Score',       value:ch(r.score)},
   ];
+  $('dmMeta').innerHTML=meta.map(m=>`<div class="dm-meta-item"><div class="label">${m.label}</div><div class="value">${m.value}</div></div>`).join('');
 
-  $('dmMeta').innerHTML = meta.map(m => `
-    <div class="dm-meta-item">
-      <div class="label">${m.label}</div>
-      <div class="value">${m.value}</div>
-    </div>`).join('');
+  const reps=r.reponses||[], photos=r.photos||{}, qObs=r.q_observations||{}, naAssign=r.na_assignees||{};
+  const getAns=i=>Array.isArray(reps)?reps[i]??null:(reps[String(i)]??reps[i]??null);
 
-  // ── Questions & réponses ──────────────────────
-  // reponses peut être array ou objet-clé
-  const reps = r.reponses || [];
-  const photos = r.photos || {};
+  let qHtml='';
+  for(let i=0;i<qs.length;i++){
+    const ans=getAns(i);
+    const badgeCls=ans==='O'?'ans-O':ans==='X'?'ans-X':ans==='NA'?'ans-NA':'ans-??';
+    let photoHtml='';
+    const pSrc=photos[String(i)]||photos[i];
+    if(pSrc) photoHtml=`<img class="dm-photo" src="${pSrc}" alt="Photo Q${i+1}" onclick="openLightbox('${pSrc.replace(/'/g,"\\'")}');event.stopPropagation()">`;
 
-  const getAns = i => {
-    if (Array.isArray(reps)) return reps[i] ?? null;
-    return reps[String(i)] ?? reps[i] ?? null;
-  };
-
-  let qHtml = '';
-  for (let i = 0; i < qs.length; i++) {
-    const ans = getAns(i);
-    const badgeCls = ans === 'O' ? 'ans-O' : ans === 'X' ? 'ans-X' : ans === 'NA' ? 'ans-NA' : 'ans-??';
-    const badgeTxt = ans || '?';
-
-    // Photo : seulement si NA et photo présente
-    let photoHtml = '';
-    if (ans === 'NA' && photos[String(i)] || photos[i]) {
-      const src = photos[String(i)] || photos[i];
-      photoHtml = `<img class="dm-photo" src="${src}" alt="Photo Q${i+1}"
-                        onclick="openLightbox('${src.replace(/'/g,"\\'")}');event.stopPropagation()">`;
+    // Per-question extras for NA
+    let extraHtml='';
+    const obsText = qObs[String(i)]||qObs[i]||'';
+    const assignee = naAssign[String(i)]||naAssign[i]||'';
+    if(obsText||assignee){
+      extraHtml=`<div class="dm-q-extra">`;
+      if(obsText) extraHtml+=`<span class="dm-q-obs-chip">💬 ${esc(obsText)}</span>`;
+      if(assignee){
+        // Find name from stats users if possible
+        const uData = STATS?.userStats?.find(u=>u.username===assignee);
+        const uName = uData?.nom_auditeur||assignee;
+        extraHtml+=`<span class="dm-q-assign-chip">👤 Assigné : ${esc(uName)}</span>`;
+      }
+      extraHtml+=`</div>`;
     }
 
-    qHtml += `
-      <div class="dm-q">
-        <div class="dm-q-num">${i + 1}</div>
+    qHtml+=`<div class="dm-q">
+      <div class="dm-q-top">
+        <div class="dm-q-num">${i+1}</div>
         <div class="dm-q-txt">${qs[i]}</div>
-        <div class="dm-q-ans">
-          <span class="ans-badge ${badgeCls}">${badgeTxt}</span>
-          ${photoHtml}
-        </div>
-      </div>`;
+        <div class="dm-q-ans"><span class="ans-badge ${badgeCls}">${ans||'?'}</span>${photoHtml}</div>
+      </div>
+      ${extraHtml}
+    </div>`;
   }
-  $('dmQuestions').innerHTML = qHtml || '<div class="empty">Aucune réponse enregistrée</div>';
+  $('dmQuestions').innerHTML=qHtml||'<div class="empty">Aucune réponse</div>';
 
-  // ── Observations ──────────────────────────────
-  $('dmObsWrap').innerHTML = r.observations
-    ? `<div style="padding:0 1.25rem;margin-bottom:.5rem;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em">Observations</div>
-       <div class="dm-obs">${r.observations}</div>`
-    : '';
+  $('dmObsWrap').innerHTML=r.observations
+    ?`<div style="padding:0 1.25rem;margin-bottom:.5rem;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em">Observations générales</div>
+      <div class="dm-obs">${esc(r.observations)}</div>`:'';
 
   $('detailBg').classList.remove('hide');
-  $('detailModal').scrollTop = 0;
+  $('detailModal').scrollTop=0;
 }
 
-function closeDetail(e) {
-  if (e.target === $('detailBg')) closeDetailDirect();
-}
-function closeDetailDirect() {
-  $('detailBg').classList.add('hide');
-}
+function closeDetail(e){ if(e.target===$('detailBg')) closeDetailDirect(); }
+function closeDetailDirect(){ $('detailBg').classList.add('hide'); }
+function openLightbox(src){ $('lbImg').src=src; $('lbBg').classList.remove('hide'); }
 
-function openLightbox(src) {
-  $('lbImg').src = src;
-  $('lbBg').classList.remove('hide');
-}
-
-/* ═══════════════════════════════════════════
-   TOAST
-═══════════════════════════════════════════ */
+/* ── TOAST ── */
 let _t;
-function toast(msg, type = 'ok') {
-  const el = $('toast');
-  el.textContent = msg; el.className = 'toast ' + type; el.style.display = 'block';
-  clearTimeout(_t); _t = setTimeout(() => el.style.display = 'none', 3500);
+function toast(msg,type='ok'){
+  const el=$('toast'); el.textContent=msg; el.className='toast '+type; el.style.display='block';
+  clearTimeout(_t); _t=setTimeout(()=>el.style.display='none',3500);
 }
 </script>
 </body>

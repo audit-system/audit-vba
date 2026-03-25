@@ -1,0 +1,53 @@
+{
+  "1": [
+    "Est-ce que le Layered-Audit 1er niveau est assuré ? Efficace ?",
+    "Les documents de démarrage (production, qualité, process, lean, HSE, maintenance) sont disponibles et remplis conformément aux standards ?",
+    "Le processus établi dans la ligne est compatible au plan de travail ? (opérations et équipement)",
+    "L'affectation des opérateurs est conforme par rapport aux matrices de compétences ?",
+    "Les paramètres de sécurité process/machines sont activés & vérifiés ?",
+    "Est-ce que la maintenance préventive se fait systématiquement ?",
+    "Les équipements / outils sont calibrés ?",
+    "Les OPL's qualité, analyse top défaut ou défaut critique sont faits systématiquement et effectivement ?",
+    "Les produits bloqués à la cage rouge sont analysés par l'équipe ?",
+    "Les exigences générales concernant la sécurité, santé et protection d'environnement sont documentées et respectées ?",
+    "La séparation des déchets est bien respectée d'une manière systématique ?",
+    "Les racks de matière première sont identifiés et conformes à la matrice définie par la logistique/process ?",
+    "Chaque chose est dans sa place, et une place pour chaque chose ? (Couloir, zone vide, rack équipement/outils…)",
+    "Des actions correctives sont-elles mises en place suite aux analyses de réclamations client récurrentes ?",
+    "Vérifier le nettoyage de la matière première dans la ligne (ex: sac PE est fermé…) ?",
+    "Vérifier le nettoyage des box / blisters from WH ?",
+    "Vérifier le nettoyage de l'équipement conformément à la forme FO-2022 ?"
+  ],
+  "2": [
+    "Est-ce que la réunion journalière du segment leader avec l'équipe est réalisée ?",
+    "La réunion journalière du shift leader est faite ?",
+    "Le système layered audit du shift leader est réalisé ?",
+    "Est-ce que le système layered audit du segment leader est respecté ?",
+    "Respectez-vous le système du \"Kanban\" ?",
+    "Le système d'OPL est respecté ?",
+    "Le Q-Point est à jour ?",
+    "Y a-t-il des améliorations pour le segment ?",
+    "Le traitement des réclamations clients est assuré ?",
+    "Le système de gestion documentaire est respecté ?",
+    "Existe-t-il une gestion pour les MAP ? Est-ce qu'elle est respectée ?",
+    "La gestion des incomplets est respectée ?",
+    "Le système H&S est respecté ?",
+    "Le système d'environnement au sein du segment est connu et respecté ?"
+  ],
+  "3": [
+    "Est-ce que la passation Op coordinateur et Op adjuster est faite correctement ?",
+    "Les documents de démarrage (4/6 Eyes, FSK, OK démarrage, fiche maintenance, dummy test, suivi de production) sont rempliés & signés pour J-1 ?",
+    "Flux de produits respecte le plan de travail ?",
+    "L'affectation des opérateurs est conforme par rapport aux matrices de compétences, mis à jour badge ?",
+    "Les paramètres de sécurité process/machines sont activés & vérifiés ?",
+    "Les étiquettes de la maintenance préventive sont collées sur les machines/équipements, avec date à jour ?",
+    "Tous les équipements / outils / dispositifs sont calibrés ?",
+    "Les OPLs qualité et analyse 1er niveau des défauts qualité bloquées à la cage rouge sont analysées avec actions ?",
+    "Vérifier la séparation des déchets (carton, plastique, produits chimiques…) ?",
+    "Respect des EPIs ? Identifier tous risques incidents/accidents/santé et sécurité au travail ?",
+    "Les racks de matière première sont identifiés et conformes à la matrice définie par la logistique/process ?",
+    "Chaque chose est dans sa place, et une place pour chaque chose ? (Couloir, zone vide, rack équipement/outils…)",
+    "Les Shift Leaders font-ils un suivi des actions/solutions apportées conforme aux attentes client ?",
+    "5S opérateurs"
+  ]
+}
