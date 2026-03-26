@@ -48,6 +48,7 @@ router.get('/', async (req, res) => {
     }
   });
 */
+
 // POST /api/admin
 router.post('/', async (req, res) => {
   const { action } = req.body ?? {};

@@ -1118,9 +1118,18 @@ function openDetail(idx){
   for(let i=0;i<qs.length;i++){
     const ans=getAns(i);
     const badgeCls=ans==='O'?'ans-O':ans==='X'?'ans-X':ans==='NA'?'ans-NA':'ans-??';
-    let photoHtml='';
-    const pSrc=photos[String(i)]||photos[i];
-    if(pSrc) photoHtml=`<img class="dm-photo" src="${pSrc}" alt="Photo Q${i+1}" onclick="openLightbox('${pSrc.replace(/'/g,"\\'")}');event.stopPropagation()">`;
+    //let photoHtml='';
+    //const pSrc=photos[String(i)]||photos[i];
+    //if(pSrc) photoHtml=`<img class="dm-photo" src="${pSrc}" alt="Photo Q${i+1}" onclick="openLightbox('${pSrc.replace(/'/g,"\\'")}');event.stopPropagation()">`;
+
+     // Photo : afficher si présente pour cette question (clé string ou number)
+    let photoHtml = '';
+    const src = photos[String(i)] ?? photos[i] ?? null;
+    if (src) {
+      photoHtml = `<img class="dm-photo" src="${src}" alt="Photo Q${i+1}"
+                        onclick="openLightbox('${src.replace(/'/g,"\\'")}');event.stopPropagation()">`;
+    }
+
 
     // Per-question extras for NA
     let extraHtml='';

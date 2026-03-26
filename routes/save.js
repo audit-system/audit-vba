@@ -9,8 +9,8 @@ const router   = express.Router();
 //   SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM
 const transporter = nodemailer.createTransport({
   host:   process.env.SMTP_HOST || 'smtp.gmail.com',
-  port:   parseInt(process.env.SMTP_PORT || '465'),
-  secure: true,
+  port:   parseInt(process.env.SMTP_PORT || '587'),
+  secure: false,
   auth: {
     user: process.env.SMTP_USER || 'chakir8822abdelhadi@gmail.com',
     pass: process.env.SMTP_PASS || 'iilxbavvsqgwwzjk',
