@@ -41,8 +41,12 @@ router.get('/', async (req, res) => {
     return res.json({ ok: false, err: t(lang, 'err.unknown_action') });
   try {
     const [rows] = await db.execute(
+<<<<<<< HEAD
       `SELECT id, username, nom, niveau, role, zone,
               IFNULL(email,'') AS email, IFNULL(specialite,'') AS specialite
+=======
+      `SELECT id, username, nom, niveau, role, zone, email, specialite
+>>>>>>> 8571ba75f8c55b1eb22c20bef0b8d366b6de7275
        FROM users ORDER BY niveau, username`
     );
     res.json({ ok: true, users: rows });
@@ -50,6 +54,28 @@ router.get('/', async (req, res) => {
     res.json({ ok: false, err: e.message });
   }
 });
+
+  // GET /api/admin?action=assignees&niveau=3  — utilisateurs pour dropdown NA
+ /* router.get('/assignees', async (req, res) => {
+    const currentUser = req.session.user;
+    const targetNiveau = parseInt(req.query.niveau);
+    try {
+      // Retourne les utilisateurs de niveau <= currentUser.niveau (même ou inférieur dans la hiérarchie)
+      // Pour un LPA 2 (segment leader), affiche LPA 2 et LPA 3 (shift leaders)
+      // Pour un LPA 1 (directeur), affiche LPA 1, 2 et 3
+      const [rows] = await db.execute(
+        `SELECT id, username, nom, niveau, role, zone, email, specialite
+        FROM users
+        WHERE niveau >= ? AND role != 'super_admin'
+        ORDER BY niveau, nom`,
+        [targetNiveau]
+      );
+      res.json({ ok: true, users: rows });
+    } catch (e) {
+      res.json({ ok: false, err: e.message });
+    }
+  });
+*/
 
 // POST /api/admin
 router.post('/', async (req, res) => {
@@ -69,8 +95,12 @@ router.post('/', async (req, res) => {
 
       const hash = await bcrypt.hash(password, 10);
       const [result] = await db.execute(
+<<<<<<< HEAD
         `INSERT INTO users (username, password, nom, niveau, role, zone, email, specialite)
          VALUES (?,?,?,?,?,?,?,?)`,
+=======
+        'INSERT INTO users (username, password, nom, niveau, role, zone, email, specialite) VALUES (?,?,?,?,?,?,?,?)',
+>>>>>>> 8571ba75f8c55b1eb22c20bef0b8d366b6de7275
         [username, hash, nom, parseInt(niveau), role ?? '', zone ?? '', email ?? '', specialite ?? '']
       );
       return res.json({ ok: true, id: result.insertId });
@@ -82,7 +112,10 @@ router.post('/', async (req, res) => {
       if (!id || (nom ?? '').length < 2)
         return res.json({ ok: false, err: t(lang, 'admin.invalid_data_short') });
 
+<<<<<<< HEAD
       // Prevent super_admin from changing their own role
+=======
+>>>>>>> 8571ba75f8c55b1eb22c20bef0b8d366b6de7275
       if (parseInt(id) === parseInt(req.session.user.id) && role === 'super_admin') {
         await db.execute(
           'UPDATE users SET nom=?, zone=?, email=?, specialite=? WHERE id=?',
@@ -114,7 +147,11 @@ router.post('/', async (req, res) => {
     if (action === 'delete') {
       const { id } = req.body;
       if (parseInt(id) === parseInt(req.session.user.id))
+<<<<<<< HEAD
         return res.json({ ok: false, err: t(lang, 'admin.cannot_delete_self') });
+=======
+        return res.json({ ok: false, err: 'Impossible de se supprimer soi-même' });
+>>>>>>> 8571ba75f8c55b1eb22c20bef0b8d366b6de7275
       await db.execute('DELETE FROM users WHERE id = ?', [id]);
       return res.json({ ok: true });
     }
