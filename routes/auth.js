@@ -17,24 +17,17 @@ router.post('/login', async (req, res) => {
     if (!u) return res.json({ ok: false });
 
     let ok = false;
-<<<<<<< HEAD
 
     // 1. Test bcrypt
     try { ok = await bcrypt.compare(password, u.password); } catch { ok = false; }
 
     // 2. Fallback plaintext → migrate to bcrypt silently
-=======
-    try { ok = await bcrypt.compare(password, u.password); } catch { ok = false; }
->>>>>>> 8571ba75f8c55b1eb22c20bef0b8d366b6de7275
     if (!ok && u.password === password) {
       const hash = await bcrypt.hash(password, 10);
       await db.execute('UPDATE users SET password = ? WHERE id = ?', [hash, u.id]);
       ok = true;
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> 8571ba75f8c55b1eb22c20bef0b8d366b6de7275
     if (!ok) return res.json({ ok: false });
 
     req.session.user = u;

@@ -1,0 +1,9 @@
+# Created by https://www.toptal.com/developers/gitignore/api/node
+# Edit at https://www.toptal.com/developers/gitignore?templates=node
+
+
+# Dependency directories
+node_modules/
+# Optional npm cache directory
+.npm
+

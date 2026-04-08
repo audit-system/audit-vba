@@ -55,29 +55,4 @@ router.get('/', async (req, res) => {
   }
 });
 
-
- // GET /api/data?action=assignees&niveau=3  — utilisateurs pour dropdown NA
-  router.get('/assignees', async (req, res) => {
-    const currentUser = req.session.user;
-    const targetNiveau = parseInt(req.query.niveau);
-  
-    try {
-      // Retourne les utilisateurs de niveau <= currentUser.niveau (même ou inférieur dans la hiérarchie)
-      // Pour un LPA 2 (segment leader), affiche LPA 2 et LPA 3 (shift leaders)
-      // Pour un LPA 1 (directeur), affiche LPA 1, 2 et 3
-      const [rows] = await db.execute(
-        `SELECT id, username, nom, niveau, role, zone, email, specialite
-        FROM users
-        WHERE niveau >= ? AND role != 'super_admin'
-        ORDER BY niveau, nom`,
-        [currentUser.niveau]
-      );
-      res.json({ ok: true, users: rows });
-    } catch (e) {
-      res.json({ ok: false, err: e.message });
-    }
-  });
-
-
-
 module.exports = router;
