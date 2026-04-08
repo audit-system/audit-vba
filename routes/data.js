@@ -1,15 +1,17 @@
 // routes/data.js — Données dashboard filtrées par niveau
-const express = require('express');
-const db      = require('../db');
-const router  = express.Router();
+const express        = require('express');
+const db             = require('../db');
+const { t, getLang } = require('../i18n');
+const router         = express.Router();
 
 const COLS = `id, date_audit, date_saisie, niveau, username,
   nom_auditeur, zone, shift, semaine, mois, reponses, observations,
   conformes, non_conformes, score`;
 
-// Middleware auth
+// Auth middleware
 router.use((req, res, next) => {
-  if (!req.session?.user) return res.json({ ok: false, rows: [] });
+  if (!req.session?.user)
+    return res.json({ ok: false, err: t(getLang(req), 'err.not_connected'), rows: [] });
   next();
 });
 
@@ -21,7 +23,7 @@ router.get('/', async (req, res) => {
   try {
     let rows;
 
-    // super_admin et niveau 1 voient tout
+    // super_admin and niveau 1 see everything
     if (u.role === 'super_admin' || lv === 1) {
       [rows] = await db.execute(
         `SELECT ${COLS} FROM soumissions ORDER BY date_saisie DESC LIMIT 300`
@@ -31,7 +33,7 @@ router.get('/', async (req, res) => {
         `SELECT ${COLS} FROM soumissions WHERE niveau >= 2 ORDER BY date_saisie DESC LIMIT 300`
       );
     } else {
-      // Niveau 3 : ses soumissions uniquement
+      // Niveau 3: own submissions only
       [rows] = await db.execute(
         `SELECT ${COLS} FROM soumissions WHERE username = ? ORDER BY date_saisie DESC LIMIT 300`,
         [u.username]

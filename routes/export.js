@@ -1,4 +1,4 @@
-// routes/export.js — Export JSON pour VBA Excel (avec photos)
+// routes/export.js — JSON export for VBA Excel
 const express = require('express');
 const db      = require('../db');
 const router  = express.Router();
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
       FROM soumissions`;
     const params = [];
 
-    if ([1,2,3].includes(niveau)) {
+    if ([1, 2, 3].includes(niveau)) {
       sql += ' WHERE niveau = ?';
       params.push(niveau);
     }
@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
       score:         parseInt(r.score),
     }));
 
-    // Stats par niveau
+    // Stats per level
     const stats = {};
     for (const lv of [1, 2, 3]) {
       const [[s]] = await db.execute(
